@@ -1,0 +1,142 @@
+﻿@model Housematica.Data.Data.CMS.Single;
+@{
+    Layout = "/Views/Shared/_ComponentLayout.cshtml";
+}
+
+@section scripts{
+    <script>
+
+
+      var numberOfModels;
+    var canvas = document.getElementById("renderCanvas");
+
+    var engine = null;
+    var scene = null;
+
+    var sceneToRender = null;
+    var createDefaultEngine = function () { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
+    var scenes = [];
+
+       
+      
+       
+
+
+
+   function delayCreateScene() {
+
+
+			 var scene = [];
+        var camera = [];
+
+
+           @for(int i=0; i<Model.SingleFloor.Count(); i++)
+           {
+                <text>
+       scene[@Model.SingleFloor[i].IdSingleFloor] = new BABYLON.Scene(engine);
+
+
+       scenes[@Model.SingleFloor[i].IdSingleFloor]=scene[@Model.SingleFloor[i].IdSingleFloor];
+       var currentScene = scene[@Model.SingleFloor[i].IdSingleFloor];
+       camera[@Model.SingleFloor[i].IdSingleFloor] = new BABYLON.ArcRotateCamera(camera[1], 0, 0, 0, new BABYLON.Vector3(0, 0, -0), scene[@Model.SingleFloor[i].IdSingleFloor]);
+
+       camera[@Model.SingleFloor[i].IdSingleFloor].wheelprecision = 24000;
+    
+       BABYLON.SceneLoader.ShowLoadingScreen = false;
+       BABYLON.SceneLoader.Append("https://cdn.housematica.pl/cdn/@Model.Projects.IdProject/@Model.Name/ApartmentVariant" + "@(i+1)" + "/", "@Model.SingleFloor[i].FloorModel", scene[@Model.SingleFloor[i].IdSingleFloor], function (elo) {
+           scene[@Model.SingleFloor[i].IdSingleFloor].createDefaultCameraOrLight(true, true, true);
+           scene[@Model.SingleFloor[i].IdSingleFloor].clearColor = new BABYLON.Color3(255, 255, 255);
+
+           //ile do góry
+           scene[@Model.SingleFloor[i].IdSingleFloor].activeCamera.lowerBetaLimit = 0.3;
+
+
+           //ile do dołu
+           scene[@Model.SingleFloor[i].IdSingleFloor].activeCamera.upperBetaLimit = 1.5;
+
+
+           var light = new BABYLON.DirectionalLight("light1", new BABYLON.Vector3(-2, -6, -2), scene[@Model.SingleFloor[i].IdSingleFloor]);
+          light.position = new BABYLON.Vector3(20, 60, 20);
+			light.shadowMinZ = 30;
+			light.shadowMaxZ = 180;
+			light.intensity = 1;
+	
+			var generator = new BABYLON.ShadowGenerator(512, light);
+			generator.useContactHardeningShadow = true;
+			generator.bias = 0.01;
+			generator.normalBias= 0.05;
+			generator.contactHardeningLightSizeUVRatio = 0.08;
+
+           for (var i = 0; i == (scene[@Model.SingleFloor[i].IdSingleFloor].meshes.length-1); i++) {
+               generator.addShadowCaster(scene[@Model.SingleFloor[i].IdSingleFloor].meshes[i]);
+               scene[@Model.SingleFloor[i].IdSingleFloor].meshes[i].receiveShadows = true;
+               if (scene[@Model.SingleFloor[i].IdSingleFloor].meshes[i].material && scene[@Model.SingleFloor[i].IdSingleFloor].meshes[i].material.bumpTexture) {
+                   scene[@Model.SingleFloor[i].IdSingleFloor].meshes[i].material.bumpTexture.level = 2;
+               }
+           }
+
+
+
+
+           camera[@Model.SingleFloor[i].IdSingleFloor] = scene[@Model.SingleFloor[i].IdSingleFloor].activeCamera;
+       });
+
+       </text>
+           }
+
+
+
+
+
+
+
+       return scene[@Model.SingleFloor.Select(x=>x.IdSingleFloor).FirstOrDefault()];
+
+
+       
+        // Append glTF model to scene.
+
+
+    }
+
+        function changeScene(wersja) {
+            currentScene = scenes[wersja];
+            engine.stopRenderLoop();
+            engine.runRenderLoop(function () {
+
+                console.log("scenes[" + wersja + "]")
+                currentScene.render();
+
+            });
+        };
+
+
+
+    var engine;
+    try {
+        engine = createDefaultEngine();
+    } catch (e) {
+        console.log("the available createEngine function failed. Creating the default engine instead");
+        engine = createDefaultEngine();
+    }
+    if (!engine) throw 'engine should not be null.';
+    scene = delayCreateScene();
+    console.log("211");
+    sceneToRender = scene
+
+    engine.runRenderLoop(function () {
+        if (sceneToRender) {
+            sceneToRender.render();
+            if (scene.isReady()) {
+                $(".loader").addClass("loader-hide");
+            } 
+            
+        }
+    });
+
+
+   
+        
+
+    </script>
+}

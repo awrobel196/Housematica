@@ -1,0 +1,1310 @@
+﻿@model Housematica.Data.Data.CMS.Apartment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@section Styles{
+    <link href="~/assets/css/pages/wizard/wizard-1.css" rel="stylesheet" type="text/css" />
+}
+
+<!--begin::Content-->
+<div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-6  subheader-transparent " id="kt_subheader">
+        <div class=" container  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Info-->
+            <div class="d-flex align-items-center flex-wrap mr-1">
+
+                <!--begin::Page Heading-->
+                <div class="d-flex align-items-baseline flex-wrap mr-5">
+                    <!--begin::Page Title-->
+                    <h5 class="text-dark font-weight-bold my-1 mr-5">
+                        Nowy apartament
+                    </h5>
+                    <!--end::Page Title-->
+
+                </div>
+                <!--end::Page Heading-->
+            </div>
+            <!--end::Info-->
+            <!--begin::Toolbar-->
+            <div class="d-flex align-items-center">
+                <!--begin::Actions-->
+                <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">
+                    Actions
+                </a>
+                <!--end::Actions-->
+                <!--begin::Dropdown-->
+                <div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions"
+                     data-placement="left">
+                    <a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="svg-icon svg-icon-success svg-icon-2x">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Files/File-plus.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                                                                                         viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"
+                                          fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                    <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z"
+                                          fill="#000000" />
+                                </g>
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 m-0">
+                        <!--begin::Navigation-->
+                        <ul class="navi navi-hover">
+                            <li class="navi-header font-weight-bold py-4">
+                                <span class="font-size-lg">Choose Label:</span>
+                                <i class="flaticon2-information icon-md text-muted"
+                                   data-toggle="tooltip" data-placement="right"
+                                   title="Click to learn more..."></i>
+                            </li>
+                            <li class="navi-separator mb-3 opacity-70"></li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-success">Customer</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-danger">Partner</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-warning">Suplier</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-primary">Member</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-dark">Staff</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-separator mt-3 opacity-70"></li>
+                            <li class="navi-footer py-4">
+                                <a class="btn btn-clean font-weight-bold btn-sm" href="#">
+                                    <i class="ki ki-plus icon-sm"></i>
+                                    Add new
+                                </a>
+                            </li>
+                        </ul>
+                        <!--end::Navigation-->
+                    </div>
+                </div>
+                <!--end::Dropdown-->
+            </div>
+            <!--end::Toolbar-->
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class=" container-fluid ">
+            <div class="card card-custom">
+                <div class="card-body p-0">
+                    <!--begin::Wizard-->
+                    <div class="wizard wizard-1" id="kt_wizard_v1" data-wizard-state="step-first"
+                         data-wizard-clickable="false">
+                        <!--begin::Wizard Nav-->
+                        <div class="wizard-nav border-bottom">
+                            <div class="wizard-steps p-8 p-lg-10">
+                                <!--begin::Wizard Step 1 Nav-->
+                                <div class="wizard-step" data-wizard-type="step"
+                                     data-wizard-state="current">
+                                    <div class="wizard-label">
+                                        <i class="wizard-icon flaticon-bus-stop"></i>
+                                        <h3 class="wizard-title">1. Informacje podstawowe</h3>
+                                    </div>
+                                    <span class="svg-icon svg-icon-xl wizard-arrow">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                                                                            height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none"
+                                               fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <rect fill="#000000" opacity="0.3"
+                                                      transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) "
+                                                      x="11" y="5" width="2" height="14" rx="1" />
+                                                <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z"
+                                                      fill="#000000" fill-rule="nonzero"
+                                                      transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997) " />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                </div>
+                                <!--end::Wizard Step 1 Nav-->
+                                <!--begin::Wizard Step 2 Nav-->
+                                <div class="wizard-step" data-wizard-type="step">
+                                    <div class="wizard-label">
+                                        <i class="wizard-icon flaticon-list"></i>
+                                        <h3 class="wizard-title">2. Warianty apartementów</h3>
+                                    </div>
+                                    <span class="svg-icon svg-icon-xl wizard-arrow">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                                                                            height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none"
+                                               fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <rect fill="#000000" opacity="0.3"
+                                                      transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) "
+                                                      x="11" y="5" width="2" height="14" rx="1" />
+                                                <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z"
+                                                      fill="#000000" fill-rule="nonzero"
+                                                      transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997) " />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                </div>
+                                <!--end::Wizard Step 2 Nav-->
+                                <!--begin::Wizard Step 3 Nav-->
+                                <div class="wizard-step" data-wizard-type="step">
+                                    <div class="wizard-label">
+                                        <i class="wizard-icon flaticon-responsive"></i>
+                                        <h3 class="wizard-title">3. Opcje konfiguracji</h3>
+                                    </div>
+                                    <span class="svg-icon svg-icon-xl wizard-arrow">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                                                                            height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none"
+                                               fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <rect fill="#000000" opacity="0.3"
+                                                      transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) "
+                                                      x="11" y="5" width="2" height="14" rx="1" />
+                                                <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z"
+                                                      fill="#000000" fill-rule="nonzero"
+                                                      transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997) " />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                </div>
+                                <!--end::Wizard Step 3 Nav-->
+                                <!--begin::Wizard Step 4 Nav-->
+                                <div class="wizard-step" data-wizard-type="step">
+                                    <div class="wizard-label">
+                                        <i class="wizard-icon flaticon-globe"></i>
+                                        <h3 class="wizard-title">4. Podsumowanie apartamentu</h3>
+                                    </div>
+                                    <span class="svg-icon svg-icon-xl wizard-arrow last">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                                                                            height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none"
+                                               fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <rect fill="#000000" opacity="0.3"
+                                                      transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) "
+                                                      x="11" y="5" width="2" height="14" rx="1" />
+                                                <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z"
+                                                      fill="#000000" fill-rule="nonzero"
+                                                      transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997) " />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                </div>
+                                <!--end::Wizard Step 4 Nav-->
+                            </div>
+                        </div>
+                        <!--end::Wizard Nav-->
+                        <!--begin::Wizard Body-->
+                        <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
+                            <div class="col-xl-12 col-xxl-7">
+                                <!--begin::Wizard Form-->
+                                <form class="form" id="kt_form" asp-action="Create" enctype="multipart/form-data">
+                                    <!--begin::Wizard Step 1-->
+                                    <div class="pb-5" data-wizard-type="step-content"
+                                         data-wizard-state="current">
+                                        <h3 class="mb-10 font-weight-bold text-dark">
+                                            Informacje podstawowe
+                                        </h3>
+                                        <!--begin::Input-->
+
+
+                                        <div class="row">
+
+                                            <div class="col-xl-6">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Numer/nazwa apartamentu</label>
+                                                    <input type="text"
+                                                           class="form-control form-control-solid form-control-lg" id="ApartmentName"
+                                                           name="ApartmentName"
+                                                           asp-for="ApartmentName"
+                                                           placeholder="Numer/nazwa apartamentu"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Wpisz nazwę lub numer apartementu
+                                                    </span>
+                                                </div>
+                                                <!--end::Input-->
+
+
+                                            </div>
+
+                                            <div class="col-xl-6">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+
+                                                    <label>
+                                                        Projekt
+                                                        <popover title="Niepełna lista projektów2" value="Nowy apartament możesz dodać nie do wszystkich swoich projektów. Jeśli nie widzisz swojego projektu na liście, oznacza to że jego typ zezwala wyłącznie na dodawanie do niego domów." element="?"></popover>
+                                                    </label>
+                                                    <select name="IdProjects"
+                                                            id="ProjectName"
+                                                            class="form-control form-control-solid form-control-lg"
+                                                            oninput="sendToFinalStep(this)"
+                                                            asp-for="IdProjects" asp-items="ViewBag.IdProjects">
+                                                    </select>
+
+
+                                                    <span class="form-text text-muted">
+                                                        Wybierz projekt
+                                                    </span>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+                                        </div>
+
+                                        <!--end::Input-->
+                                        <div class="row">
+
+                                            <div class="col-xl-6">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Powierzchnia apartamentu</label>
+                                                    <input type="text"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           name="Area"
+                                                           placeholder="Powierzchnia apartamentu"
+                                                           asp-for="Area"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Wpisz powierzchnie apartamentu (w m<sup>2</sup>).
+                                                    </span>
+                                                </div>
+                                                <!--end::Input-->
+
+
+                                            </div>
+
+                                            <div class="col-xl-6">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Piętro</label>
+                                                    <input type="text"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           name="Floor" placeholder="Piętro"
+                                                           asp-for="Floor"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Wpisz na którym piętrze znajduje się apartament
+                                                    </span>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!--end::Wizard Step 1-->
+                                    <!--begin::Wizard Step 2-->
+                                    <div class="pb-5" data-wizard-type="step-content" id="variantStep">
+                                        <h4 class="mb-10 font-weight-bold text-dark">
+                                            Warianty apartamentu
+                                        </h4>
+                                        <!--begin::Input-->
+                                        <h3 class="text-dark-25">Standardowy apartament</h3>
+                                        <div id="variant" class="I">
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <label>Powierzchnia apartamanetu</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               id="apartmentArea"
+                                                               asp-for="ApartmentVariants[0].ApartmentArea"
+                                                               placeholder="Apartment area"
+                                                               oninput="sendToFinalStep(this)" />
+                                                        <span class="form-text text-muted">
+                                                            Powierzchnia apartamentu (w
+                                                            m<sup>2</sup>).
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <label>Powierzchnia balkonu/ogródka</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               id="balconyArea"
+                                                               asp-for="ApartmentVariants[0].BalconyArea"
+                                                               placeholder="Powierzchnia balkonu/ogródka"
+                                                               oninput="sendToFinalStep(this)" />
+                                                        <span class="form-text text-muted">
+                                                            Wpisz powierzchnie balkonu/ogródka (w
+                                                            m<sup>2</sup>).
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <label>Liczba pomieszczeń</label>
+                                                        <input min="0" type="number"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               asp-for="ApartmentVariants[0].Rooms[0].RoomArea"
+                                                               placeholder="Liczba pomieszczeń" id="1"
+                                                               onwheel="return false;"
+                                                               onkeyup="addRooms(this.id)"
+                                                               onclick="addRooms(this.id)"
+                                                               oninput="sendToFinalStep(this)" />
+                                                        <span class="form-text text-muted">
+                                                            Wpisz liczbę pomieszczeń apartamentu
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <label>Liczba pokoi</label>
+                                                        <input type="number"
+                                                               id="numberLivingRoom roomNumber"
+                                                               min="0" ;
+                                                               onwheel="return false;"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               asp-for="ApartmentVariants[0].NumberOfLivingRoom"
+                                                               placeholder="Liczba pokoi" value=""
+                                                               oninput="sendToFinalStep(this)" />
+                                                        <span class="form-text text-muted">
+                                                            Wpisz liczbę pokoi apartamentu
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end::Input-->
+
+
+
+                                        <div class="row" id="placeToHtml1">
+
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+
+
+                                                    <label>Cena apartamentu</label>
+                                                    <input type="text"
+                                                           id="apartmentPrice"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           asp-for="ApartmentVariants[0].ApartmentPrice"
+                                                           placeholder="Cena apartamentu" value=""
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Wpisz cenę apartamentu
+                                                    </span>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+
+                                                    <label>Model apartamentu</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input"
+                                                               id="ApartmentVariant1" multiple name="standard3dFile" multiple
+                                                               onchange="readURL(this)" />
+
+
+                                                        <label class="custom-file-label"
+                                                               for="customFile">Wybierz plik</label>
+                                                        <span class="form-text text-muted">
+                                                            Wybierz model 3D apartamentu
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="text" asp-for="ApartmentVariants[0].ApartmentModel" class="ApartmentVariant1" />
+                                        </div>
+
+
+                                        <div id="placeToVariant">
+
+
+
+                                        </div>
+
+
+
+                                        <a onclick="addApartmentVariant()"
+                                           class="btn-block btn btn-light btn-text-primary btn-hover-text-primary font-weight-bold">
+                                            Dodaj kolejny wariant
+                                        </a>
+
+                                    </div>
+                                    <!--end::Wizard Step 2-->
+                                    <!--begin::Wizard Step 3-->
+                                    <div class="pb-5" data-wizard-type="step-content">
+                                        <h4 class="mb-10 font-weight-bold text-dark">
+                                            Opcje konfiguracji
+                                        </h4>
+
+                                        <div class="form-group">
+                                            <div class="alert alert-custom alert-default" role="alert">
+                                                <div class="alert-icon">
+                                                    <i class="flaticon-warning text-primary"></i>
+                                                </div>
+                                                <div class="alert-text">
+                                                    Teraz możesz dodać opcje konfiguracji, takie jak meble kuchenne, drzwi, okna itp. do projektu mieszkania. <b>Zapamiętaj!</b> Każda opcja konfiguracji musi mieć wartość cenową.
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--begin::Select-->
+                                        <!--Kitchen option begin-->
+                                        <div class="form-group row">
+
+                                            <h6 class="col-2"
+                                                style="padding-top: calc(0.35rem + 1px); padding-bottom: calc(0.65rem + 1px); margin-bottom: 0;">
+                                                Kuchnia
+                                            </h6>
+                                            <div class="col-2">
+                                                <span class="switch switch-icon">
+                                                    <label>
+                                                        <input id="kitchenCheckbox" type="checkbox"
+                                                               name="select"
+                                                               onclick="showKitchenOptions()" />
+
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Select-->
+
+
+
+                                        <div class="row display-none" id="kitchenConfigure" data-list="listElement">
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <h3 class="text-dark-25" style="margin-bottom:-1rem">1. Dodakowy wariant kuchnii</h3>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <input type="text" value="Kitchen" asp-for="ApartmentOption[0].OptionType" style="display:none" />
+                                                    <label>Nazwa wariantu</label>
+                                                    <input type="text"
+                                                           id="kitchenName1"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           placeholder="Nazwa wariantu"
+                                                           asp-for="ApartmentOption[0].OptionName"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Wpisz nazwę wariantu
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <label>Cena wariantu</label>
+                                                    <input type="text"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           placeholder="Cena wariantu"
+                                                           id="kitchenPrice1"
+                                                           asp-for="ApartmentOption[0].Price" oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Wpisz cenę wariantu
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Opis wariantu</label>
+                                                    <textarea class="form-control form-control-solid form-control-lg"
+                                                              rows="4"
+                                                              id="kitchenDescription1"
+                                                              asp-for="ApartmentOption[0].OptionDescription"
+                                                              oninput="sendToFinalStep(this)"></textarea>
+                                                    <span class="form-text text-muted">
+                                                        Wpisz opis wariantu
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Wizualizacja wariantu</label>
+                                                    <div class="custom-file">
+
+                                                        <input type="file" class="custom-file-input"
+                                                               id="KitchenOption1" multiple
+                                                               onchange="readURL(this)" />
+                                                        <label class="custom-file-label"
+                                                               for="customFile">Wybierz plik</label>
+                                                        <span class="form-text text-muted">
+                                                            Wybierz plik z wizualizacją wariantu
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div id="placeToKitchenVariant" class="row"
+                                                 style="margin-left: 0px; margin-right: 0px;">
+
+
+
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <a onclick="addKitchenVariant()"
+                                                       class="btn-block btn btn-light btn-text-primary btn-hover-text-primary font-weight-bold">
+                                                        Dodaj nowy wariant
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <div class="separator separator-solid"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <!--Kitchen option end-->
+                                        <!--Bathroom option begin-->
+                                        <div class="form-group row">
+
+                                            <h6 class="col-2"
+                                                style="padding-top: calc(0.35rem + 1px); padding-bottom: calc(0.65rem + 1px); margin-bottom: 0;">
+                                                Łazienka
+                                            </h6>
+                                            <div class="col-2">
+                                                <span class="switch switch-icon">
+                                                    <label>
+                                                        <input id="bathroomCheckbox" type="checkbox"
+                                                               value="Bathroom"
+                                                               asp-for="ApartmentOption[1].OptionType"
+                                                               onclick="showBathroomOptions()" />
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Select-->
+
+
+
+                                        <div class="row display-none" id="bathroomConfigure" data-list="listElement">
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <h3 class="text-dark-25" style="margin-bottom:-1rem">1. Additional bathroom variant</h3>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <input type="text" value="Bathroom" asp-for="ApartmentOption[1].OptionType" style="display:none" />
+                                                    <label>Option name</label>
+                                                    <input type="text"
+                                                           id="bathroomName1"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           asp-for="ApartmentOption[1].OptionName" placeholder="Option name"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        bathroom option name.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <label>Option price</label>
+                                                    <input type="text"
+                                                           id="bathroomPrice1"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           placeholder="Option price"
+                                                           asp-for="ApartmentOption[1].Price"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        bathroom option price.
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Option description</label>
+                                                    <textarea class="form-control form-control-solid form-control-lg"
+                                                              rows="4"
+                                                              id="bathroomDescription1"
+                                                              asp-for="ApartmentOption[1].OptionDescription"
+                                                              oninput="sendToFinalStep(this)"></textarea>
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        option description.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Option visualisation</label>
+                                                    <div class="custom-file">
+
+                                                        <input type="file" class="custom-file-input"
+                                                               id="BathroomOption1" multiple
+                                                               onchange="readURL(this)" />
+                                                        <label class="custom-file-label"
+                                                               for="customFile">Choose file</label>
+                                                        <span class="form-text text-muted">
+                                                            Please upload
+                                                            option visualisation.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div id="placeToBathroomVariant" class="row"
+                                                 style="margin-left: 0px; margin-right: 0px;">
+
+
+
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <a onclick="addBathroomVariant()"
+                                                       class="btn-block btn btn-light btn-text-primary btn-hover-text-primary font-weight-bold">
+                                                        Add
+                                                        new variant
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <div class="separator separator-solid"></div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <!--Bathroom option end-->
+                                        <!--Rooms option begin-->
+                                        <div class="form-group row">
+
+                                            <h6 class="col-2"
+                                                style="padding-top: calc(0.35rem + 1px); padding-bottom: calc(0.65rem + 1px); margin-bottom: 0;">
+                                                Pokoje
+                                            </h6>
+                                            <div class="col-2">
+                                                <span class="switch switch-icon">
+                                                    <label>
+                                                        <input id="roomsCheckbox" type="checkbox"
+                                                               asp-for="ApartmentOption[2].OptionType"
+                                                               value="Rooms"
+                                                               onclick="showRoomsOptions()" />
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Select-->
+
+
+
+                                        <div class="row display-none" id="roomsConfigure" data-list="listElement">
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <h3 class="text-dark-25" style="margin-bottom:-1rem">1. Additional rooms variant</h3>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <input type="text" value="Rooms" asp-for="ApartmentOption[2].OptionType" style="display:none" />
+                                                    <label>Option name</label>
+                                                    <input type="text"
+                                                           id="roomsName1"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           asp-for="ApartmentOption[2].OptionName" placeholder="Option name"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        rooms option name.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <label>Option price</label>
+                                                    <input type="text"
+                                                           id="roomsPrice1"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           asp-for="ApartmentOption[2].Price" placeholder="Option price"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        rooms option price.
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Option description</label>
+                                                    <textarea class="form-control form-control-solid form-control-lg"
+                                                              rows="4"
+                                                              id="roomsDescription1"
+                                                              asp-for="ApartmentOption[2].OptionDescription"
+                                                              oninput="sendToFinalStep(this)"></textarea>
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        option description.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Option visualisation</label>
+                                                    <div class="custom-file">
+
+                                                        <input type="file" class="custom-file-input"
+                                                               id="RoomsOption1" multiple
+                                                               onchange="readURL(this)" />
+                                                        <label class="custom-file-label"
+                                                               for="customFile">Choose file</label>
+                                                        <span class="form-text text-muted">
+                                                            Please upload
+                                                            option visualisation.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div id="placeToRoomsVariant" class="row"
+                                                 style="margin-left: 0px; margin-right: 0px;">
+
+
+
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <a onclick="addRoomsVariant()"
+                                                       class="btn-block btn btn-light btn-text-primary btn-hover-text-primary font-weight-bold">
+                                                        Add
+                                                        new variant
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <div class="separator separator-solid"></div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <!--Rooms option end-->
+                                        <!--Door and window option begin-->
+                                        <div class="form-group row">
+
+                                            <h6 class="col-2"
+                                                style="padding-top: calc(0.35rem + 1px); padding-bottom: calc(0.65rem + 1px); margin-bottom: 0;">
+                                                Okna & drzwi
+                                            </h6>
+                                            <div class="col-2">
+                                                <span class="switch switch-icon">
+                                                    <label>
+                                                        <input id="doorWindowCheckbox" type="checkbox"
+                                                               onclick="showDoorWindowOptions()" />
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end::Select-->
+
+
+
+                                        <div class="row display-none" id="doorWindowConfigure" data-list="listElement">
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <h3 class="text-dark-25" style="margin-bottom:-1rem">1. Additional door and window variant</h3>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <input type="text" value="Door and window" asp-for="ApartmentOption[3].OptionType" style="display:none" />
+                                                    <label>Option name</label>
+                                                    <input type="text"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           id="doorWindowName1"
+                                                           asp-for="ApartmentOption[3].OptionName" placeholder="Option name"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        door window option name.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group">
+                                                    <label>Option price</label>
+                                                    <input type="text"
+                                                           class="form-control form-control-solid form-control-lg"
+                                                           id="doorWindowPrice1"
+                                                           asp-for="ApartmentOption[3].Price" placeholder="Option price"
+                                                           oninput="sendToFinalStep(this)" />
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        door and window option price.
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Option description</label>
+                                                    <textarea class="form-control form-control-solid form-control-lg"
+                                                              rows="4"
+                                                              asp-for="ApartmentOption[3].OptionDescription"
+                                                              id="doorWindowDescription1"
+                                                              oninput="sendToFinalStep(this)"></textarea>
+                                                    <span class="form-text text-muted">
+                                                        Please enter
+                                                        option description.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label>Option visualisation</label>
+                                                    <div class="custom-file">
+
+                                                        <input type="file" class="custom-file-input"
+                                                               id="DoorWindowVariant1" multiple
+                                                               onchange="readURL(this)" />
+                                                        <label class="custom-file-label"
+                                                               for="customFile">Choose file</label>
+                                                        <span class="form-text text-muted">
+                                                            Please upload
+                                                            option visualisation.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div id="placeToDoorWindowVariant" class="row"
+                                                 style="margin-left: 0px; margin-right: 0px;">
+
+
+
+                                            </div>
+
+
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <a onclick="addDoorWindowVariant()"
+                                                       class="btn-block btn btn-light btn-text-primary btn-hover-text-primary font-weight-bold">
+                                                        Add
+                                                        new variant
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12" style="margin-bottom:2em">
+                                                <div class="separator separator-solid"></div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <!--Door and window option end-->
+
+
+
+
+
+
+
+
+
+                                    </div>
+                                    <!--end::Wizard Step 3-->
+                                    <!--begin::Wizard Step 5-->
+                                    <div class="pb-5" data-wizard-type="step-content">
+                                        <!--begin::Section-->
+                                        <h4 class="mb-10 font-weight-bold text-dark">
+                                            Review your Details
+                                            and Submit
+                                        </h4>
+                                        <h6 class="font-weight-bolder mb-3">
+                                            Main information:
+                                        </h6>
+                                        <div class="text-dark-50 line-height-lg">
+                                            <div>
+                                                Apartment number/name: <span id="ApartmentNameFinal"></span>
+                                            </div>
+                                            <div>Project name: <span id="IdProjectsFinal"></span></div>
+                                            <div>
+                                                Apartment area: <span id="AreaFinal"></span>
+                                            </div>
+                                            <div>Floor: <span id="FloorFinal"></span></div>
+                                        </div>
+                                        <div class="separator separator-dashed my-5"></div>
+                                        <!--end::Section-->
+                                        <!--begin::Section-->
+                                        <div id="apartmentVariantList">
+                                            <h6 class="font-weight-bolder mb-3">
+                                                Apartment variants:
+                                            </h6>
+
+
+
+                                            <div class="accordion accordion-light accordion-light-borderless accordion-svg-toggle"
+                                                 id="accordionExample7">
+
+
+                                                <div class="card">
+                                                    <div class="card-header" id="headingTwo7">
+                                                        <div class="card-title collapsed"
+                                                             data-toggle="collapse"
+                                                             data-target="#collapseTwo7"
+                                                             style="padding: 0px;">
+                                                            <span class="svg-icon svg-icon-primary">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                     width="24px" height="24px"
+                                                                     viewBox="0 0 24 24" version="1.1">
+                                                                    <g stroke="none" stroke-width="1"
+                                                                       fill="none" fill-rule="evenodd">
+                                                                        <polygon points="0 0 24 0 24 24 0 24">
+                                                                        </polygon>
+                                                                        <path d="M12.2928955,6.70710318 C11.9023712,6.31657888 11.9023712,5.68341391 12.2928955,5.29288961 C12.6834198,4.90236532 13.3165848,4.90236532 13.7071091,5.29288961 L19.7071091,11.2928896 C20.085688,11.6714686 20.0989336,12.281055 19.7371564,12.675721 L14.2371564,18.675721 C13.863964,19.08284 13.2313966,19.1103429 12.8242777,18.7371505 C12.4171587,18.3639581 12.3896557,17.7313908 12.7628481,17.3242718 L17.6158645,12.0300721 L12.2928955,6.70710318 Z"
+                                                                              fill="#000000"
+                                                                              fill-rule="nonzero"></path>
+                                                                        <path d="M3.70710678,15.7071068 C3.31658249,16.0976311 2.68341751,16.0976311 2.29289322,15.7071068 C1.90236893,15.3165825 1.90236893,14.6834175 2.29289322,14.2928932 L8.29289322,8.29289322 C8.67147216,7.91431428 9.28105859,7.90106866 9.67572463,8.26284586 L15.6757246,13.7628459 C16.0828436,14.1360383 16.1103465,14.7686056 15.7371541,15.1757246 C15.3639617,15.5828436 14.7313944,15.6103465 14.3242754,15.2371541 L9.03007575,10.3841378 L3.70710678,15.7071068 Z"
+                                                                              fill="#000000"
+                                                                              fill-rule="nonzero"
+                                                                              opacity="0.3"
+                                                                              transform="translate(9.000003, 11.999999) rotate(-270.000000) translate(-9.000003, -11.999999) ">
+                                                                        </path>
+                                                                    </g>
+                                                                </svg>
+                                                            </span>
+                                                            <div class="card-label pl-4" style="font-size: 13px !important;
+                                            font-weight: 400;
+                                            font-family: Poppins, Helvetica, 'sans-serif';
+                                            color: #3F4254 !important;
+                                            padding-left: 0.2rem !important;"><b>Standard apartment</b></div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="collapseTwo7"
+                                                         style="padding-left: 1.8rem !important;"
+                                                         class="collapse text-dark-50"
+                                                         data-parent="#accordionExample7">
+                                                        <div>
+                                                            Apartment area: <span id="standardApartmentAreaFinal"></span>
+                                                        </div>
+                                                        <div>
+                                                            Living rooms: <span id="standardNumberLivingRoomFinal"></span>
+                                                        </div>
+                                                        <div>
+                                                            Rooms number: <span id="standardNumberRoomsFinal"></span>
+                                                        </div>
+                                                        <div class="card-body pl-12" id="finalRoomList1"
+                                                             style="padding-left: 1.7rem !important;">
+
+                                                        </div>
+                                                        <div>
+                                                            Balcony/garden area: <span id="standardBalconyAreaFinal"></span>
+                                                        </div>
+                                                        <div>
+                                                            Apartment price: <span id="standardApartmentPriceFinal"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <!--end::Section-->
+
+
+                                        <div class="separator separator-dashed my-5"></div>
+
+
+
+                                        <!--begin::Section-->
+                                        <div id="configureVariantList">
+                                            <h6 class="font-weight-bolder mb-3">
+                                                Configure option:
+                                            </h6>
+
+                                            <h6 class="font-weight-bolder mb-3"
+                                                style="font-size:1.05rem; margin-bottom: 0.2rem !important;">
+                                                Kitchen option: <span id="numberOfKitchenOption">
+                                                    none
+                                                    option
+                                                </span>
+                                            </h6>
+
+                                            <div id="kitchenOptionFirst">
+
+                                            </div>
+
+                                            <div id="kitchenOptionRest">
+
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+                                            <h6 class="font-weight-bolder mb-3"
+                                                style="font-size:1.05rem; margin-top: 0.8rem !important;">
+                                                Bathroom option: <span id="numberOfBathroomOption">
+                                                    none
+                                                    option
+                                                </span>
+                                            </h6>
+
+                                            <div id="bathroomOptionFirst">
+
+                                            </div>
+
+                                            <div id="bathroomOptionRest">
+
+                                            </div>
+
+
+
+                                            <h6 class="font-weight-bolder mb-3"
+                                                style="font-size:1.05rem; margin-top: 0.8rem !important;">
+                                                Rooms option: <span id="numberOfRoomsOption">
+                                                    none
+                                                    option
+                                                </span>
+                                            </h6>
+
+                                            <div id="roomsOptionFirst">
+
+                                            </div>
+
+                                            <div id="roomsOptionRest">
+
+                                            </div>
+
+
+
+                                            <h6 class="font-weight-bolder mb-3"
+                                                style="font-size:1.05rem; margin-top: 0.8rem !important;">
+                                                Door and window option: <span id="numberOfDoorWindowOption">
+                                                    none
+                                                    option
+                                                </span>
+                                            </h6>
+
+                                            <div id="doorWindowOptionFirst">
+
+                                            </div>
+
+                                            <div id="doorWindowOptionRest">
+
+                                            </div>
+
+
+
+
+                                            <div class="separator separator-dashed my-5"></div>
+
+
+
+
+
+                                        </div>
+
+                                        <!--end::Section-->
+                                        <!--begin::Section-->
+                                        <h6 class="font-weight-bolder mb-3">
+                                            Delivery Service Type:
+                                        </h6>
+                                        <div class="text-dark-50 line-height-lg">
+                                            <div>Overnight Delivery with Regular Packaging</div>
+                                            <div>Preferred Morning (8:00AM - 11:00AM) Delivery</div>
+                                        </div>
+                                        <div class="separator separator-dashed my-5"></div>
+                                        <!--end::Section-->
+                                        <!--begin::Section-->
+                                        <h6 class="font-weight-bolder mb-3">
+                                            Delivery Address:
+                                        </h6>
+                                        <div class="text-dark-50 line-height-lg">
+                                            <div>Address Line 1</div>
+                                            <div>Address Line 2</div>
+                                            <div>Preston 3072, VIC, Australia</div>
+                                        </div>
+                                        <!--end::Section-->
+                                    </div>
+                                    <!--end::Wizard Step 5-->
+                                    <!--begin::Wizard Actions-->
+                                    <div class="d-flex justify-content-between border-top mt-5 pt-10">
+                                        <div class="mr-2">
+                                            <button type="button"
+                                                    class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
+                                                    data-wizard-type="action-prev">
+                                                Previous
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <button type="submit"
+                                                    class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
+                                                    data-wizard-type="action-submit">
+                                                Submit
+                                            </button>
+                                            <button type="button"
+                                                    class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
+                                                    data-wizard-type="action-next">
+                                                Next
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--end::Wizard Actions-->
+                                </form>
+                                <!--end::Wizard Form-->
+                            </div>
+                        </div>
+                        <!--end::Wizard Body-->
+                    </div>
+                    <!--end::Wizard-->
+                </div>
+                <!--end::Wizard-->
+            </div>
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Entry-->
+</div>
+<!--end::Content-->
+
+@section Scripts {
+
+    <script type="text/javascript" src="~/assets/js/pages/custom/wizard/apartment-variants15.js"></script>
+    <script type="text/javascript" src="~/assets/js/pages/custom/wizard/configurationOption16.js"></script>
+    <script src="~/assets/js/pages/custom/wizard/wizard-1.js"></script>
+    <script src="~/assets/js/pages/features/miscellaneous/toastr.js"></script>
+
+    <script>
+        //This function send data from input to finalStep fields
+        function sendToFinalStep(element) {
+            var elementName = element.name;
+            var content = document.getElementsByName(elementName)[0].value;
+
+            document.getElementById(elementName + "Final").innerHTML = content;
+
+        }
+
+        function readURL(e) {
+
+
+            var files = e.files;
+            console.log("Files: " + files)
+            var formData = new FormData();
+            var apartmentName = $('#ApartmentName').val();
+            var projectName = $('#ProjectName').val();
+            var modelType = e.id;
+            console.log("Model Tyle: " + modelType)
+            for (var i = 0; i != files.length; i++) {
+                formData.append("files", files[i]);
+                console.log("Form data: " + files[i])
+            }
+
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "500",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+
+
+            formData.append("projectName", projectName);
+            formData.append("apartmentName", apartmentName);
+            formData.append("modelType", modelType);
+            $.ajax(
+                {
+                    url: "/Apartment/UploadFiles",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    type: "POST",
+                    success: function (data) {
+                        $("." + modelType + "").val(data);
+                        console.log(data);
+                        toastr.success("Files are correctly upload to server");
+                    }
+                }
+            );
+
+        }
+
+    </script>
+
+
+
+}

@@ -1,0 +1,414 @@
+﻿@model Housematica.Data.Data.CMS.Projects
+
+<p class="selected-mieszkanie-id" style="display:none"></p>
+<p class="selected-uklad-id" style="display:none"></p>
+<div class="content w-100" style="background-color: white !important">
+
+    <!--begin: Main navigation-->
+    <div class="navigation d-flex " style="background-color: white !important">
+        <div class="row align-self-center " style="margin: 0px;">
+            <div class="col-1 d-flex justify-content-center" onClick="optionsSlideUp()">
+                <img src="~/assets/media/logo.png" class="image">
+            </div>
+
+            <div id="inline-popups">
+                <a href="#popup" id="testButton" data-effect="mfp-zoom-out" style="display: none !important">Popup</a>
+            </div>
+
+
+
+
+            <div class="col modyfication-type-col d-flex justify-content-center">
+                <span data-effect="mfp-zoom-out" class="nav-element active-nav-element" data-modification-type="mieszkanie"
+                      onclick="setActiveModyficationType(this)">Mieszkanie</span>
+            </div>
+
+            <div class="col modyfication-type-col d-flex justify-content-center">
+                <span class="nav-element" data-modification-type="uklad"
+                      onclick="setActiveModyficationType(this)">Układ</span>
+            </div>
+
+            <div class="col modyfication-type-col d-flex justify-content-center">
+                <span class="nav-element" data-modification-type="kuchnia"
+                      onclick="setActiveModyficationType(this)">Kuchnia</span>
+            </div>
+
+            <div class="col modyfication-type-col d-flex justify-content-center">
+                <span class="nav-element" data-modification-type="pokoje"
+                      onclick="setActiveModyficationType(this)">Pokoje</span>
+            </div>
+
+            <div class="col modyfication-type-col d-flex justify-content-center">
+                <span class="nav-element" data-modification-type="lazienka"
+                      onclick="setActiveModyficationType(this)">Łazienka</span>
+            </div>
+
+            <div class="col modyfication-type-col d-flex justify-content-center" id="last">
+                <span class="nav-element" data-modification-type="wykonczenia"
+                      onclick="setActiveModyficationType(this)">Wykończenia</span>
+            </div>
+
+
+        </div>
+    </div>
+    <!--end: Main navigation-->
+    <!--begin: Options-->
+    <div class="options" style="background-color: white !important; background: none !important;">
+
+        <!--begin: Mieszkanie options-->
+        <div class="options-element options-element-active" data-options-element="mieszkanie">
+            <div class="option-group">
+                <div class="row">
+                    @foreach (var item in Model.Apartment)
+                    {
+                        <div class="col mieszkanie-item" onclick="selectMieszkanie(this, '@item.IdApartment', '@item.ApartmentName')" data-option-price="@item.ApartmentVariants.Select(x=>x.ApartmentPrice).FirstOrDefault()" data-option-name="@item.ApartmentName">
+                            <p class="header">Mieszkanie @item.ApartmentName <span class="header-highlighted">Dostępne</span></p>
+                            <p class="title">Powierzchnia mieszkania</p>
+                            <p class="value">@item.Area m<sup>2</sup></p>
+                            <p class="title">Kondygnacja</p>
+                            <p class="value">Piętro @item.Floor</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!--end: Models options-->
+        <!--begin: Uklad options-->
+        <div class="options-element" data-options-element="uklad">
+            <div class="option-group">
+                <div class="row ukladPlace">
+
+                </div>
+            </div>
+        </div>
+        <!--end: Uklad options-->
+        <!--begin: Kuchnia options-->
+        <div class="options-element" data-options-element="kuchnia">
+            <div class="option-group">
+
+                <div class="row kuchniaPlace" style="margin-right: 0px;margin-left: 0px; ">
+
+
+                </div>
+            </div>
+        </div>
+        <!--end: Kuchnia options-->
+        <!--begin: Pokoje options-->
+        <div class="options-element" data-options-element="pokoje">
+            <div class="option-group">
+
+                <div class="row pokojePlace" style="margin-right: 0px;margin-left: 0px; ">
+
+
+
+                </div>
+            </div>
+        </div>
+        <!--end: Pokoje options-->
+        <!--begin: Łazienka options-->
+        <div class="options-element" data-options-element="lazienka">
+            <div class="option-group">
+
+                <div class="row lazienkiPlace" style="margin-right: 0px;margin-left: 0px; ">
+
+
+                </div>
+            </div>
+        </div>
+        <!--end: Łazienka options-->
+        <!--begin: Wykonczenia options-->
+        <div class="options-element" data-options-element="wykonczenia">
+            <div class="option-group">
+
+                <div class="row items wykonczeniaPlace" style="margin-right: 0px;margin-left: 0px; ">
+
+                </div>
+            </div>
+        </div>
+        <!--end: Wykończenia options-->
+
+
+
+
+        <div class="options-element" data-options-element="optional"
+             style="background-color: pink; height: 100%;"> </div>
+    </div>
+    <!--end: Options-->
+    <!--begin: Main View-->
+
+
+    <div id="popup-load-configuration" class="load-configuration">
+        <a href="#popupLoadConfiguration" id="testButton" data-effect="mfp-zoom-out">Wczytaj konfigurację</a>
+    </div>
+    <div class="main-view" style="background-image: url('../../background.jpg')">
+        <canvas id="renderCanvas"></canvas>
+    </div>
+    <!--end: Main View-->
+    <!--begin: Summary bar-->
+    <div class="summary-bar">
+        <div class="summary-model-name">
+            <span data-title="projekt">@Model.ProjectName</span>
+
+        </div>
+        <div class="summary-model-price">
+            <p class="summary-price-text">Cena konfiguracji</p>
+            <p class="summary-price-value">
+                <span class="main-price">0 zł</span> <span style="font-size: 1.4vh;
+          font-family: 'MYing-Black';
+          margin-top: 0.8vh;
+          position: fixed;
+          margin-left: 1vh;
+          opacity: 0;">+25323 zł</span>
+            </p>
+        </div>
+        <div class="summary-button">
+            <p class="summary-button-text" id="next" onclick="summaryClick(this)">DALEJ</span>
+        </div>
+    </div>
+    <!--end: Summary bar-->
+    <!--begin: Summary View-->
+    <div class="summary-view" style="background-color: #333333;
+
+display: none;
+     position: absolute;
+     bottom: 0;
+
+     width: 100%;
+     height: 40vh;
+     left: 0;
+ ">
+        <div style="width: 400px; margin-left: 9vw; height: 90%; display: inline-block; margin-top: 2vh;">
+            <div class="summary-view-model-name">
+                <span data-title="mieszkanie">Series 2 Coupe</span>
+            </div>
+            <div class="summary-view-model-items">
+                <p data-title="uklad">BMW 218i SE Coupe</p>
+                <p data-title="kuchnia">Alpine White</p>
+                <p data-title="pokoje">17" 655 Double-spoke style light </p>
+                <p data-title="lazienka">Anthracite Move cloth upholstery</p>
+                <p data-title="wykonczenia">Interior comfort package</p>
+            </div>
+        </div>
+
+        <div onclick="closeSummaryView()" style="cursor:pointer; width: 4vh; height: 4vh; background-color: #1a95ef; float: right; margin-right: 9vw; margin-top: 4.7vh; border-radius: 0.5vh;">
+            <i class="fas fa-times" style="color: white; font-size: 3vh; margin-left: 0.9vh; margin-top: 0.5vh;"></i>
+        </div>
+        <div style="width: 40vh; height: 100px; float: right; margin-top: 2vh;">
+            <div class="summary-view-model-price">
+                <span style="font-family: MYing-Thin;">424 560 zł</span>
+            </div>
+            <div>
+                <a onclick="karta()"><span style="font-family: MYing-Thin; color: white; font-size: 1.5vh;">Karta mieszkania</span></a>
+
+            </div>
+            <div id="popup-configurationKey">
+                <a href="#popupConfigurationKey" id="testButton" data-effect="mfp-zoom-out">Popup2</a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end: Summary View-->
+
+</div>
+
+<script>
+    var IdProject = "@Model.IdProject";
+</script>
+
+@section popup{
+
+
+    <div id="popupLoadConfiguration" class="white-popup mfp-with-anim mfp-hide" style="text-align: center;">
+        <p class="popup-title">Wczytaj konfigurację</p>
+
+        <input type="text" class="configuration-key-input" placeholder="Kod konfiguracji" />
+        <p class="popup-content">Wpisz swój unikatowy kod konfiguracji</p>
+
+        <div class="div-loader display-none" title="0">
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+            <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z" />
+            <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+    C22.32,8.481,24.301,9.057,26.013,10.047z">
+            <animateTransform attributeType="xml"
+                              attributeName="transform"
+                              type="rotate"
+                              from="0 20 20"
+                              to="360 20 20"
+                              dur="0.5s"
+                              repeatCount="indefinite" />
+    </path>
+  </svg>
+        </div>
+
+
+        <div class="div-button">
+            <p class="loadButton" id="next" onclick="loadConfiguration()">Wczytaj</p>
+        </div>
+    </div>
+
+    <div id="popup" class="white-popup mfp-with-anim mfp-hide">
+        <p class="popup-title">Uwaga</p>
+        <p class="popup-content">Aby przejść do kolejnego kroku konfiguracji musisz wcześniej wybrać interesujące Cię mieszkanie</p>
+    </div>
+
+    <div id="popupConfigurationKey" class="white-popup mfp-with-anim mfp-hide">
+        <p class="popup-content" style="margin-top:1vh; margin-bottom:0vh">Twój klucz konfiguracji to:</p>
+        <p class="popup-configuration-key">623SHDSSUA7Y1823</p>
+        <p class="popup-content" style="margin-bottom:1vh; margin-top:0vh;">Zapisz go aby udostępnić wykonaną konfigurację lub powrócić do niej w dowolnym momencie.</p>
+    </div>
+}
+
+@section scripts{
+    <script>
+
+        function karta() {
+            var idUklad = $(".selected-uklad-id").text();
+            var idApartament = $(".selected-mieszkanie-id").text();
+            var projekt = $("span[data-title='projekt']").text();
+            var mieszkanie = $(".selected-mieszkanie").attr('data-option-name');
+            var wariant = $(".selected-uklad").attr('data-option-name');
+            var kuchnia = $(".kuchnia-outer-active").attr('data-option-name');
+            var pokoje = $(".pokoje-outer-active").attr('data-option-name');
+            var lazienka = $(".lazienka-outer-active").attr('data-option-name');
+            var wykonczenie = $(".selected-dot").attr('data-option-name');
+
+
+            location.href = "../../Projects/kartaMieszkania?" + "idUklad=" + idUklad + "&idApartament=" + idApartament + "&projekt=" + projekt + "&mieszkanie=" + mieszkanie + "&wariant=" + wariant + "&kuchnia=" + kuchnia + "&pokoje=" + pokoje + "&lazienka=" + lazienka + "&wykonczenie=" + wykonczenie;
+
+        }
+
+      var numberOfModels;
+    var canvas = document.getElementById("renderCanvas");
+
+    var engine = null;
+    var scene = null;
+
+    var sceneToRender = null;
+    var createDefaultEngine = function () { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
+    var scenes = [];
+
+
+
+
+   function delayCreateScene() {
+
+
+			 var scene = [];
+        var camera = [];
+
+       @for(int i=0; i < Model.Apartment.Count(); i++)
+       {
+           @for(int j=0; j<Model.Apartment[i].ApartmentVariants.Count(); j++)
+           {
+                <text>
+       scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants] = new BABYLON.Scene(engine);
+       console.log(@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants);
+
+       scenes[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants]=scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants];
+       var currentScene = scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants];
+       camera[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants] = new BABYLON.ArcRotateCamera(camera[1], 0, 0, 0, new BABYLON.Vector3(0, 0, -0), scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants]);
+
+       camera[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].wheelprecision = 24000;
+       console.log("/@Model.IdProject/@Model.Apartment[i].ApartmentName/ApartmentVariant" + "@(j+1)" + "/");
+       console.log("@Model.Apartment[i].ApartmentVariants[j].ApartmentModel");
+       console.log("scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants]");
+       BABYLON.SceneLoader.ShowLoadingScreen = false;
+       BABYLON.SceneLoader.Append("https://ftp.quirky-curie.188-34-164-7.plesk.page/cdn/@Model.IdProject/@Model.Apartment[i].ApartmentName/ApartmentVariant"+"@(j+1)"+"/", "@Model.Apartment[i].ApartmentVariants[j].ApartmentModel", scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants], function (elo) {
+           scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].createDefaultCameraOrLight(true, true, true);
+           scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].clearColor = new BABYLON.Color3(255, 255, 255);
+
+           //ile do góry
+           scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].activeCamera.lowerBetaLimit = 0.3;
+
+
+           //ile do dołu
+           scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].activeCamera.upperBetaLimit = 1.5;
+
+
+           var light = new BABYLON.DirectionalLight("light1", new BABYLON.Vector3(-2, -6, -2), scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants]);
+           light.position = new BABYLON.Vector3(20, 60, 20);
+           light.shadowMinZ = 30;
+           light.shadowMaxZ = 180;
+           light.intensity = 1;
+
+           var generator = new BABYLON.ShadowGenerator(512, light);
+           generator.useContactHardeningShadow = true;
+           generator.bias = 0.01;
+           generator.normalBias = 0.05;
+           generator.contactHardeningLightSizeUVRatio = 0.08;
+
+           for (var i = 0; i == (scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].meshes.length-1); i++) {
+               generator.addShadowCaster(scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].meshes[i]);
+               scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].meshes[i].receiveShadows = true;
+               if (scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].meshes[i].material && scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].meshes[i].material.bumpTexture) {
+                   scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].meshes[i].material.bumpTexture.level = 2;
+               }
+           }
+
+
+
+
+           camera[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants] = scene[@Model.Apartment[i].ApartmentVariants[j].IdApartmentVariants].activeCamera;
+       });
+
+       </text>
+           }
+
+
+
+       }
+
+
+
+            return scene[1];
+
+
+
+        // Append glTF model to scene.
+
+
+    }
+
+        function changeScene(wersja) {
+            currentScene = scenes[wersja];
+            engine.stopRenderLoop();
+            engine.runRenderLoop(function () {
+
+                console.log("scenes[" + wersja + "]")
+                currentScene.render();
+
+            });
+        };
+
+
+
+    var engine;
+    try {
+        engine = createDefaultEngine();
+    } catch (e) {
+        console.log("the available createEngine function failed. Creating the default engine instead");
+        engine = createDefaultEngine();
+    }
+    if (!engine) throw 'engine should not be null.';
+    scene = delayCreateScene();
+    console.log("2");
+    sceneToRender = scene
+
+    engine.runRenderLoop(function () {
+        if (sceneToRender) {
+            sceneToRender.render();
+
+        }
+    });
+
+    // Resize
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+
+    </script>
+}

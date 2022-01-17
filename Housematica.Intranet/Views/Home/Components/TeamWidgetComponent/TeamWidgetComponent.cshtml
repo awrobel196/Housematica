@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Housematica.Intranet.ViewModel.TeamWidgetViewModel>
+
+<div class="card card-custom card-stretch gutter-b">
+    <!--begin::Header-->
+    <div class="card-header h-auto border-0">
+        <!--begin::Title-->
+        <div class="card-title py-5">
+            <h3 class="card-label">
+                <span class="d-block text-dark font-weight-bolder">Zespół projektowy</span>
+                <span class="d-block text-muted mt-2 font-size-sm">Lista osób które zarządzają projektami</span>
+            </h3>
+        </div>
+        <!--end::Title-->
+
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body">
+
+        @foreach (var item in Model)
+        {
+            <div class="row" style="margin-bottom: 1rem">
+                <div class="col-2">
+                    <a href="#" class="symbol symbol-45 symbol-light flex-shrink-0 mr-4">
+                        <div class="symbol-label">
+                            <img src="~/assets/media/svg/avatars/@item.Avatar" class="h-75 align-self-end" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6" style="align-self:center">
+                    <!--begin::Title-->
+                    <a href="#" class="text-dark-75 font-weight-bold text-hover-primary font-size-lg mb-1">
+                        @item.Name @item.Surname
+                    </a><br>
+                    <!--end::Title-->
+                    <!--begin::Data-->
+                    <span class="text-muted font-weight-bold">
+                        @item.Email
+                    </span>
+                    <!--end::Data-->
+                </div>
+                <div class="col-4" style="align-self:center">
+                    @if (item.IsActive == true)
+                    {
+                        <span class="label label-lg label-light-success label-inline font-weight-bold py-4">Aktywny</span>
+                    }
+                    else
+                    {
+                        <span class="label label-lg label-light-warning label-inline font-weight-bold py-4">Nieaktywny</span>
+                    }
+
+
+                </div>
+            </div>
+        }
+
+     
+
+
+
+    </div>
+    <!--end::Body-->
+</div>

@@ -1,0 +1,680 @@
+﻿@model Housematica.Data.Data.CMS.Projects
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!--begin::Content-->
+<div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-6  subheader-transparent " id="kt_subheader">
+        <div class=" container  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Info-->
+            <div class="d-flex align-items-center flex-wrap mr-1">
+
+                <!--begin::Page Heading-->
+                <div class="d-flex align-items-baseline flex-wrap mr-5">
+                    <!--begin::Page Title-->
+                    <h5 class="text-dark font-weight-bold my-1 mr-5">
+                        Edytuj projekt
+                    </h5>
+                    <!--end::Page Title-->
+                    <!--begin::Breadcrumb-->
+                    <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Projects" asp-action="Index" class="text-muted">
+                                Projekty
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Projects" asp-action="Create" class="text-muted">
+                                Edytuj projekt
+                            </a>
+                        </li>
+                    </ul>
+                    <!--end::Breadcrumb-->
+                </div>
+                <!--end::Page Heading-->
+            </div>
+            <!--end::Info-->
+            <!--begin::Toolbar-->
+            <div class="d-flex align-items-center">
+                <!--begin::Actions-->
+                <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">
+                    Actions
+                </a>
+                <!--end::Actions-->
+                <!--begin::Dropdown-->
+                <div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions"
+                     data-placement="left">
+                    <a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="svg-icon svg-icon-success svg-icon-2x">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Files/File-plus.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                                                                                         viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"
+                                          fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                    <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z"
+                                          fill="#000000" />
+                                </g>
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 m-0">
+                        <!--begin::Navigation-->
+                        <ul class="navi navi-hover">
+                            <li class="navi-header font-weight-bold py-4">
+                                <span class="font-size-lg">Choose Label:</span>
+                                <i class="flaticon2-information icon-md text-muted"
+                                   data-toggle="tooltip" data-placement="right"
+                                   title="Click to learn more..."></i>
+                            </li>
+                            <li class="navi-separator mb-3 opacity-70"></li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-success">Customer</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-danger">Partner</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-warning">Suplier</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-primary">Member</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-item">
+                                <a href="#" class="navi-link">
+                                    <span class="navi-text">
+                                        <span class="label label-xl label-inline label-light-dark">Staff</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="navi-separator mt-3 opacity-70"></li>
+                            <li class="navi-footer py-4">
+                                <a class="btn btn-clean font-weight-bold btn-sm" href="#">
+                                    <i class="ki ki-plus icon-sm"></i>
+                                    Add new
+                                </a>
+                            </li>
+                        </ul>
+                        <!--end::Navigation-->
+                    </div>
+                </div>
+                <!--end::Dropdown-->
+            </div>
+            <!--end::Toolbar-->
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class=" container-fluid ">
+            <div class="card card-custom">
+                <div class="card-body p-0">
+                    <!--begin: Wizard-->
+                    <div class="wizard wizard-2" id="kt_wizard_v2" data-wizard-state="step-first"
+                         data-wizard-clickable="false">
+                        <!--begin: Wizard Nav-->
+                        <div class="wizard-nav border-right py-8 px-8 py-lg-20 px-lg-10">
+
+
+
+                            <!--begin::Wizard Step 1 Nav-->
+                            <div class="wizard-steps">
+                                <div class="wizard-step" data-wizard-type="step"
+                                     data-wizard-state="current">
+                                    <div class="wizard-wrapper">
+                                        <div class="wizard-icon">
+                                            <span class="svg-icon svg-icon-2x">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                          width="24px" height="24px" viewBox="0 0 24 24"
+                                                                                                                          version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                       fill-rule="evenodd">
+                                                        <polygon points="0 0 24 0 24 24 0 24" />
+                                                        <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                                              fill="#000000" fill-rule="nonzero"
+                                                              opacity="0.3" />
+                                                        <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                                              fill="#000000" fill-rule="nonzero" />
+                                                    </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                        </div>
+                                        <div class="wizard-label">
+                                            <h3 class="wizard-title">
+                                                Investment Owner
+                                            </h3>
+                                            <div class="wizard-desc">
+                                                Setup Your Owner Details
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Wizard Step 1 Nav-->
+                                <!--begin::Wizard Step 4 Nav-->
+                                <!--begin::Wizard Step 2 Nav-->
+                                <div class="wizard-step" data-wizard-type="step">
+                                    <div class="wizard-wrapper">
+                                        <div class="wizard-icon">
+                                            <span class="svg-icon svg-icon-2x">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Map/Compass.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                         width="24px" height="24px" viewBox="0 0 24 24"
+                                                                                                                         version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                       fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24" />
+                                                        <path d="M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M14.1654881,7.35483745 L9.61055177,10.3622525 C9.47921741,10.4489666 9.39637436,10.592455 9.38694497,10.7495509 L9.05991526,16.197949 C9.04337012,16.4735952 9.25341309,16.7104632 9.52905936,16.7270083 C9.63705011,16.7334903 9.74423017,16.7047714 9.83451193,16.6451626 L14.3894482,13.6377475 C14.5207826,13.5510334 14.6036256,13.407545 14.613055,13.2504491 L14.9400847,7.80205104 C14.9566299,7.52640477 14.7465869,7.28953682 14.4709406,7.27299168 C14.3629499,7.26650974 14.2557698,7.29522855 14.1654881,7.35483745 Z"
+                                                              fill="#000000" />
+                                                    </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                        </div>
+                                        <div class="wizard-label">
+                                            <h3 class="wizard-title">
+                                                Investmen Location
+                                            </h3>
+                                            <div class="wizard-desc">
+                                                Choose Your Location Map
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Wizard Step 2 Nav-->
+
+
+
+                                <div class="wizard-step" data-wizard-type="step">
+                                    <div class="wizard-wrapper">
+                                        <div class="wizard-icon">
+                                            <span class="svg-icon svg-icon-2x">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Map/Position.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                          width="24px" height="24px" viewBox="0 0 24 24"
+                                                                                                                          version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                       fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24" />
+                                                        <path d="M19,11 L21,11 C21.5522847,11 22,11.4477153 22,12 C22,12.5522847 21.5522847,13 21,13 L19,13 C18.4477153,13 18,12.5522847 18,12 C18,11.4477153 18.4477153,11 19,11 Z M3,11 L5,11 C5.55228475,11 6,11.4477153 6,12 C6,12.5522847 5.55228475,13 5,13 L3,13 C2.44771525,13 2,12.5522847 2,12 C2,11.4477153 2.44771525,11 3,11 Z M12,2 C12.5522847,2 13,2.44771525 13,3 L13,5 C13,5.55228475 12.5522847,6 12,6 C11.4477153,6 11,5.55228475 11,5 L11,3 C11,2.44771525 11.4477153,2 12,2 Z M12,18 C12.5522847,18 13,18.4477153 13,19 L13,21 C13,21.5522847 12.5522847,22 12,22 C11.4477153,22 11,21.5522847 11,21 L11,19 C11,18.4477153 11.4477153,18 12,18 Z"
+                                                              fill="#000000" fill-rule="nonzero"
+                                                              opacity="0.3" />
+                                                        <circle fill="#000000" opacity="0.3" cx="12"
+                                                                cy="12" r="2" />
+                                                        <path d="M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z M12,19 C8.13400675,19 5,15.8659932 5,12 C5,8.13400675 8.13400675,5 12,5 C15.8659932,5 19,8.13400675 19,12 C19,15.8659932 15.8659932,19 12,19 Z"
+                                                              fill="#000000" fill-rule="nonzero" />
+                                                    </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                        </div>
+                                        <div class="wizard-label">
+                                            <h3 class="wizard-title">
+                                                Inwestment details
+                                            </h3>
+                                            <div class="wizard-desc">
+                                                Inwestment name, description
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Wizard Step 4 Nav-->
+                                <!--begin::Wizard Step 6 Nav-->
+                                <div class="wizard-step" data-wizard-type="step">
+                                    <div class="wizard-wrapper">
+                                        <div class="wizard-icon">
+                                            <span class="svg-icon svg-icon-2x">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/General/Like.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                          width="24px" height="24px" viewBox="0 0 24 24"
+                                                                                                                          version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                       fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24" />
+                                                        <path d="M9,10 L9,19 L10.1525987,19.3841996 C11.3761964,19.7920655 12.6575468,20 13.9473319,20 L17.5405883,20 C18.9706314,20 20.2018758,18.990621 20.4823303,17.5883484 L21.231529,13.8423552 C21.5564648,12.217676 20.5028146,10.6372006 18.8781353,10.3122648 C18.6189212,10.260422 18.353992,10.2430672 18.0902299,10.2606513 L14.5,10.5 L14.8641964,6.49383981 C14.9326895,5.74041495 14.3774427,5.07411874 13.6240179,5.00562558 C13.5827848,5.00187712 13.5414031,5 13.5,5 L13.5,5 C12.5694044,5 11.7070439,5.48826024 11.2282564,6.28623939 L9,10 Z"
+                                                              fill="#000000" />
+                                                        <rect fill="#000000" opacity="0.3" x="2" y="9"
+                                                              width="5" height="11" rx="1" />
+                                                    </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                        </div>
+                                        <div class="wizard-label">
+                                            <h3 class="wizard-title">
+                                                Completed!
+                                            </h3>
+                                            <div class="wizard-desc">
+                                                Review and Submit
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Wizard Step 6 Nav-->
+                            </div>
+                        </div>
+                        <!--end: Wizard Nav-->
+                        <!--begin: Wizard Body-->
+                        <div class="wizard-body py-8 px-8 py-lg-20 px-lg-10">
+                            <!--begin: Wizard Form-->
+                            <div class="row">
+                                <div class="offset-xxl-2 col-xxl-8">
+                                    <form class="form" id="kt_form" asp-action="Edit">
+                                        <!--begin: Wizard Step 1-->
+                                        <div class="pb-5" data-wizard-type="step-content"
+                                             data-wizard-state="current">
+                                            <h4 class="mb-10 font-weight-bold text-dark">
+                                                Enter your
+                                                Account Details
+                                            </h4>
+                                            <!--begin::Input-->
+                                            <div class="form-group display-none">
+                                                <label>Owner name</label>
+                                                <input type="number"
+                                                       class="form-control form-control-solid form-control-lg"
+                                                       name="idProjectsContact" placeholder="Owner name"
+                                                       oninput="sendToFinalStep(this)" asp-for="ProjectsContact.IdProjectsContact" />
+                                                <span class="form-text text-muted">
+                                                    Please enter owner
+                                                    name
+                                                </span>
+                                            </div>
+                                            <!--end::Input-->
+                                            <!--begin::Input-->
+                                            <div class="form-group display-none">
+                                                <label>Owner name</label>
+                                                <input type="number"
+                                                       class="form-control form-control-solid form-control-lg"
+                                                       name="idProject" placeholder="Owner name"
+                                                       oninput="sendToFinalStep(this)" asp-for="IdProject" />
+                                                <span class="form-text text-muted">
+                                                    Please enter owner
+                                                    name
+                                                </span>
+                                            </div>
+                                            <!--end::Input-->
+                                            <!--begin::Input-->
+                                            <div class="form-group">
+                                                <label>Owner name</label>
+                                                <input type="text"
+                                                       class="form-control form-control-solid form-control-lg"
+                                                       name="ownerName" placeholder="Owner name"
+                                                       oninput="sendToFinalStep(this)" asp-for="OwnerName" />
+                                                <span class="form-text text-muted">
+                                                    Please enter owner
+                                                    name
+                                                </span>
+                                            </div>
+                                            <!--end::Input-->
+                                            <!--begin::Input-->
+                                            <div class="form-group">
+                                                <label>Contact person</label>
+                                                <input type="text"
+                                                       class="form-control form-control-solid form-control-lg"
+                                                       name="contactPerson" placeholder="Contact person"
+                                                       oninput="sendToFinalStep(this)" asp-for="ProjectsContact.ContactPerson" />
+                                                <span class="form-text text-muted">
+                                                    Please enter contact
+                                                    person info.
+                                                </span>
+                                            </div>
+                                            <!--end::Input-->
+
+                                            <div class="form-group">
+                                                <label>Adress</label>
+                                                <input type="text"
+                                                       class="form-control form-control-solid form-control-lg"
+                                                       name="ownerAdress" placeholder="Adress"
+                                                       oninput="sendToFinalStep(this)" asp-for="ProjectsContact.OwnerAdress" />
+                                                <span class="form-text text-muted">
+                                                    Please enter owner
+                                                    adress.
+                                                </span>
+                                            </div>
+                                            <!--end::Input-->
+
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Phone</label>
+                                                        <input type="tel"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               name="ownerPhone" placeholder="phone"
+                                                               oninput="sendToFinalStep(this)" asp-for="ProjectsContact.OwnerPhone" />
+                                                        <span class="form-text text-muted">
+                                                            Please enter
+                                                            your phone number.
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="email"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               name="ownerEmail" placeholder="Email"
+                                                               oninput="sendToFinalStep(this)" asp-for="ProjectsContact.OwnerEmail" />
+                                                        <span class="form-text text-muted">
+                                                            Please enter
+                                                            your email address.
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end: Wizard Step 1-->
+                                        <!--begin: Wizard Step 2-->
+                                        <div class="pb-5" data-wizard-type="step-content">
+                                            <h4 class="mb-10 font-weight-bold text-dark">
+                                                Setup Your
+                                                Current Location
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Address Line 1</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               name="projectAdress1"
+                                                               placeholder="Address Line 1"
+                                                               oninput="sendToFinalStep(this)" asp-for="ProjectAdress1" />
+                                                        <span class="form-text text-muted">
+                                                            Please enter
+                                                            your Address.
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Address Line 2</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               name="projectAdress2"
+                                                               placeholder="Address Line 2"
+                                                               oninput="sendToFinalStep(this)" asp-for="ProjectAdress2" />
+                                                        <span class="form-text text-muted">
+                                                            Please enter
+                                                            your Address.
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Postcode</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               name="projectPostcode"
+                                                               placeholder="Postcode"
+                                                               oninput="sendToFinalStep(this)" asp-for="ProjectPostcode" />
+                                                        <span class="form-text text-muted">
+                                                            Please enter
+                                                            your Postcode.
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>City</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               name="projectCity" placeholder="City"
+                                                               oninput="sendToFinalStep(this)" asp-for="ProjectCity" />
+                                                        <span class="form-text text-muted">
+                                                            Please enter
+                                                            your City.
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>State</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               name="projectState" placeholder="State"
+                                                               oninput="sendToFinalStep(this)" asp-for="ProjectState" />
+                                                        <span class="form-text text-muted">
+                                                            Please enter
+                                                            your State.
+                                                        </span>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Select-->
+                                                    <div class="form-group">
+                                                        <label>Country</label>
+                                                        <select name="projectCountry"
+                                                                id="projectCountry"
+                                                                class="form-control form-control-solid form-control-lg"
+                                                                oninput="sendToFinalStep(this)" asp-for="ProjectCountry">
+                                                            <option value="">Select</option>
+                                                            <option value="AF" selected>
+                                                                Afghanistan
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end: Wizard Step 2-->
+                                        <!--begin: Wizard Step 3-->
+                                        <div class="pb-5" data-wizard-type="step-content">
+                                            <h4 class="mb-10 font-weight-bold text-dark">
+                                                Inwestment
+                                                details
+                                            </h4>
+                                            <!--begin::Input-->
+                                            <div class="form-group">
+                                                <label>Inwestment name</label>
+                                                <input type="text"
+                                                       class="form-control form-control-solid form-control-lg"
+                                                       name="projectName" placeholder="Inwestment name"
+                                                       oninput="sendToFinalStep(this)" asp-for="ProjectName" />
+                                                <span class="form-text text-muted">
+                                                    Please enter
+                                                    inwestment name
+                                                </span>
+                                            </div>
+                                            <!--end::Input-->
+                                            <!--begin::Select-->
+                                            <div class="form-group">
+                                                <label>Project type:</label>
+                                                <select name="idProjectType"
+                                                        class="form-control form-control-solid form-control-lg"
+                                                        oninput="sendToFinalStep(this)" asp-for="IdProjectType" asp-items="ViewBag.IdProjectType">
+                                                </select>
+                                            </div>
+                                            <!--end::Select-->
+                                            <!--begin::Input-->
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control form-control-solid form-control-lg"
+                                                          id="exampleTextarea" rows="4"
+                                                          name="projectDescription" asp-for="ProjectDescription"
+                                                          oninput="sendToFinalStep(this)"></textarea>
+                                                <span class="form-text text-muted">
+                                                    Please enter
+                                                    inwestment description
+                                                </span>
+                                            </div>
+                                            <!--end::Input-->
+
+
+
+                                        </div>
+                                        <!--end: Wizard Step 3-->
+                                        <!--begin: Wizard Step 6-->
+                                        <div class="pb-5" data-wizard-type="step-content">
+                                            <!--begin::Section-->
+                                            <h4 class="mb-10 font-weight-bold text-dark">
+                                                Review your
+                                                Details and Submit
+                                            </h4>
+                                            <h6 class="font-weight-bolder mb-3">
+                                                Inwestment owner:
+                                            </h6>
+                                            <div class="text-dark-50 line-height-lg">
+                                                <div>Owner name: <span id="ownerNameFinal"></span></div>
+                                                <div>
+                                                    Contact person: <span id="contactPersonFinal"></span>
+                                                </div>
+                                                <div>Adress: <span id="ownerAdressFinal"></span></div>
+                                                <div>Phone: <span id="ownerPhoneFinal"></span></div>
+                                                <div>Email: <span id="ownerEmailFinal"></span></div>
+
+                                            </div>
+                                            <div class="separator separator-dashed my-5"></div>
+                                            <!--end::Section-->
+                                            <!--begin::Section-->
+                                            <h6 class="font-weight-bolder mb-3">
+                                                Inwestment location:
+                                            </h6>
+                                            <div class="text-dark-50 line-height-lg">
+                                                <div>
+                                                    Adress (line 1): <span id="projectAdress1Final"></span>
+                                                </div>
+                                                <div>
+                                                    Adress (line 2): <span id="projectAdress2Final"></span>
+                                                </div>
+                                                <div>
+                                                    Postcode: <span id="projectPostcodeFinal"></span>
+                                                </div>
+                                                <div>City: <span id="projectCityFinal"></span></div>
+                                                <div>State: <span id="projectStateFinal"></span></div>
+                                                <div>
+                                                    Country: <span id="projectCountryFinal"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class="separator separator-dashed my-5"></div>
+                                            <!--end::Section-->
+                                            <!--begin::Section-->
+                                            <h6 class="font-weight-bolder mb-3">
+                                                Inwetment details:
+                                            </h6>
+                                            <div class="text-dark-50 line-height-lg">
+                                                <div>Project name: <span id="projectNameFinal"></span></div>
+                                                <div>Type: <span id="projectTypeFinal"></span></div>
+                                                <div>
+                                                    Description: <span id="projectDescriptionFinal"></span>
+                                                </div>
+                                            </div>
+                                            <div class="separator separator-dashed my-5"></div>
+                                            <!--end::Section-->
+
+
+                                        </div>
+                                        <!--end: Wizard Step 6-->
+                                        <!--begin: Wizard Actions-->
+                                        <div class="d-flex justify-content-between border-top mt-5 pt-10">
+                                            <div class="mr-2">
+                                                <button type="button"
+                                                        class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
+                                                        data-wizard-type="action-prev">
+                                                    Previous
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button type="submit"
+                                                        value="Save"
+                                                        onclick="check()"
+                                                        class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
+                                                        data-wizard-type="action-submit">
+                                                    Submit
+                                                </button>
+                                                <button type="button"
+                                                        class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
+                                                        data-wizard-type="action-next">
+                                                    Next
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!--end: Wizard Actions-->
+                                    </form>
+                                </div>
+                                <!--end: Wizard-->
+                            </div>
+                            <!--end: Wizard Form-->
+                        </div>
+                        <!--end: Wizard Body-->
+                    </div>
+                    <!--end: Wizard-->
+                </div>
+            </div>
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Entry-->
+</div>
+<!--end::Content-->
+@section Styles{
+    <link href="~/assets/css/pages/wizard/wizard-2.css" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts {
+    <script src="~/assets/js/pages/custom/wizard/wizard-2.js"></script>
+    <script src="~/assets/js/pages/custom/wizard/getCountry.js"></script>
+
+    <script>
+        function check() {
+            Swal.fire({
+                title: "Auto close alert!",
+
+
+                onOpen: function () {
+                    Swal.showLoading()
+                }
+            }).then(function (result) {
+                if (result.dismiss === "timer") {
+                    Swal.fire("Good job!", "You clicked the button!", "success");
+                    console.log("I was closed by the timer")
+                }
+            })
+        }
+    </script>
+
+
+
+}

@@ -1,0 +1,256 @@
+﻿@model Housematica.Data.Data.CMS.House
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "/Views/Shared/_ComponentLayout.cshtml";
+}
+<!--@(ViewBag.Name) option begin-->
+<div class="form-group row">
+
+    <h6 class="col-2"
+        style="padding-top: calc(0.35rem + 1px); padding-bottom: calc(0.65rem + 1px); margin-bottom: 0;">
+        Kuchnia
+    </h6>
+    <div class="col-2">
+        <span class="switch switch-icon">
+            <label>
+                <input id="@(ViewBag.Name)Checkbox" type="checkbox"
+                       name="select"
+                       />
+
+                <span></span>
+            </label>
+        </span>
+    </div>
+</div>
+<!--end::Select-->
+
+<div class="row display-none" id="@(ViewBag.Name)Configure" data-list="listElement">
+    <div class="col-xl-12" style="margin-bottom:2em">
+        <h3 class="text-dark-25" style="margin-bottom:-1rem">1. Dodakowy wariant kuchnii </h3>
+    </div>
+    <div class="col-xl-6">
+        <div class="form-group">
+            <input type="text" value="@(ViewBag.Name)" name="HouseOption[@(ViewBag.Index)].OptionType" style="display:none" />
+            <label>Nazwa wariantu</label>
+            <input type="text"
+                   id="@(ViewBag.Name)Name1"
+                   class="form-control form-control-solid form-control-lg"
+                   placeholder="Nazwa wariantu"
+                   name="HouseOption[@(ViewBag.Index)].OptionName"
+                   oninput="sendToFinalStep(this)" />
+            <span class="form-text text-muted">
+                Wpisz nazwę wariantu
+            </span>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="form-group">
+            <label>Cena wariantu</label>
+            <input type="text"
+                   class="form-control form-control-solid form-control-lg"
+                   placeholder="Cena wariantu"
+                   id="@(ViewBag.Name)Price1"
+                  name="HouseOption[@(ViewBag.Index)].Price" oninput="sendToFinalStep(this)" />
+            <span class="form-text text-muted">
+                Wpisz cenę wariantu
+            </span>
+        </div>
+    </div>
+
+
+    <div class="col-xl-12">
+        <div class="form-group">
+            <label>Opis wariantu</label>
+            <textarea class="form-control form-control-solid form-control-lg"
+                      rows="4"
+                      id="@(ViewBag.Name)Description1"
+                      name="HouseOption[@(ViewBag.Index)].OptionDescription"
+                      oninput="sendToFinalStep(this)"></textarea>
+            <span class="form-text text-muted">
+                Wpisz opis wariantu
+            </span>
+        </div>
+    </div>
+    <div class="col-xl-12">
+        <div class="form-group">
+            <label>Wizualizacja wariantu</label>
+            <div class="custom-file">
+
+                <input type="file" class="custom-file-input"
+                       id="@(ViewBag.Name)Option1" multiple
+                       onchange="readURL(this)" />
+                <label class="custom-file-label"
+                       for="customFile">Wybierz plik</label>
+                <span class="form-text text-muted">
+                    Wybierz plik z wizualizacją wariantu
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="placeTo@(ViewBag.Name)Variant" class="row"
+         style="margin-left: 0px; margin-right: 0px;">
+
+
+
+    </div>
+
+
+    <div class="col-xl-12">
+        <div class="form-group">
+            <a onclick="add@(ViewBag.Name)Variant()"
+               class="btn-block btn btn-light btn-text-primary btn-hover-text-primary font-weight-bold">
+                Dodaj nowy wariant
+            </a>
+        </div>
+    </div>
+
+    <div class="col-xl-12" style="margin-bottom:2em">
+        <div class="separator separator-solid"></div>
+    </div>
+
+</div>
+
+<!--@(ViewBag.Name) option end-->
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        //This code add new @(ViewBag.Name) variant
+        //Begin code
+        function add@(ViewBag.Name)Variant() {
+
+            var listElementCount = $("div[data-list=listElement]").length;
+            console.log(listElementCount);
+            //Check how many variant exist in this moment
+            var number@(ViewBag.Name)Variant = document.querySelectorAll('#@(ViewBag.Name)Configure').length;
+
+            
+
+            var @(ViewBag.Name)NameArray = new Array();
+            var @(ViewBag.Name)PriceArray = new Array();
+            var @(ViewBag.Name)DescriptionArray = new Array();
+
+            for (i = 2; i <= number@(ViewBag.Name)Variant; i++) {
+
+                //Create array where we save temp input value (we must save it, since they are reset when we add new variant)
+                var this@(ViewBag.Name)Name = "@(ViewBag.Name)Name" + i;
+                var this@(ViewBag.Name)Price = "@(ViewBag.Name)Price" + i;
+                var this@(ViewBag.Name)Description = "@(ViewBag.Name)Description" + i;
+
+
+                @(ViewBag.Name)NameArray[i] = document.getElementById(this@(ViewBag.Name)Name).value;
+                @(ViewBag.Name)PriceArray[i] = document.getElementById(this@(ViewBag.Name)Price).value;
+                console.log(this@(ViewBag.Name)Description);
+                @(ViewBag.Name)DescriptionArray[i] = document.getElementById(this@(ViewBag.Name)Description).value;
+
+            }
+
+
+            //Add new variant
+            document.getElementById('placeTo@(ViewBag.Name)Variant').innerHTML += `
+    <div class="col-xl-12" style="margin-bottom:2em"><div class="separator separator-solid"></div>
+    <h3 class="text-dark-25" style="margin-top:2rem !important; margin-bottom:-1rem !important">`+ (number@(ViewBag.Name)Variant + 1) + `. Additional @(ViewBag.Name) variant</h3></div>
+
+	<div class="col-xl-6" id="@(ViewBag.Name)Configure" data-list="listElement">
+
+                                    <div class="form-group">
+
+                                        <label>Option name</label>
+                                    <input type="text" value="@(ViewBag.Name)" name="HouseOption[` + (listElementCount) + `].OptionType" asp-for="HouseOption[` + (listElementCount) + `].OptionType"  style="display:none" />
+                                        <input type="text" class="form-control form-control-solid form-control-lg" id="@(ViewBag.Name)Name`+ (number@(ViewBag.Name)Variant + 1) + `" name="HouseOption[` + (listElementCount) + `].OptionName" asp-for="HouseOption[` + (listElementCount) + `].OptionName"  oninput="sendToFinalStep(this)" placeholder="Option name" value="" />
+                                        <span class="form-text text-muted">Please enter @(ViewBag.Name) option name.</span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+
+                                    <div class="form-group">
+
+                                        <label>Option price</label>
+                                        <input type="text" class="form-control form-control-solid form-control-lg" id="@(ViewBag.Name)Price`+ (number@(ViewBag.Name)Variant + 1) + `" name="HouseOption[` + (listElementCount) + `].Price" asp-for="HouseOption[` + (listElementCount) + `].Price" oninput="sendToFinalStep(this)"placeholder="Option price" value="" />
+                                        <span class="form-text text-muted">Please enter @(ViewBag.Name) option price.</span>
+                                    </div>
+								</div>
+
+
+								<div class="col-xl-12">
+                                    <div class="form-group">
+                                        <label>Option description</label>
+										<textarea class="form-control form-control-solid form-control-lg" id="@(ViewBag.Name)Description`+ (number@(ViewBag.Name)Variant + 1) + `" rows="4" name="HouseOption[` + (listElementCount) + `].OptionDescription" asp-for="HouseOption[` + (listElementCount) + `].OptionDescription" oninput="sendToFinalStep(this)"></textarea>
+										 <span class="form-text text-muted">Please enter option description.</span>
+                                    </div>
+								</div>
+								<div class="col-xl-12">
+									<div class="form-group">
+										<label>Option visualisation</label>
+										<div class="custom-file">
+
+											<input type="file" class="custom-file-input" id="@(ViewBag.Name)Option`+ (number@(ViewBag.Name)Variant + 1) + `" multiple
+                                                               onchange="readURL(this)"/>
+											<label class="custom-file-label" for="customFile">Choose file</label>
+											<span class="form-text text-muted" >Please upload option visualisation.</span>
+										</div>
+								</div>
+								</div>
+
+
+	`;
+
+
+            //Set data from array to input field
+            for (i = 2; i <= number@(ViewBag.Name)Variant; i++) {
+
+                var this@(ViewBag.Name)Name = "@(ViewBag.Name)Name" + i;
+                var this@(ViewBag.Name)Price = "@(ViewBag.Name)Price" + i;
+                var this@(ViewBag.Name)Description = "@(ViewBag.Name)Description" + i;
+
+
+                document.getElementById(this@(ViewBag.Name)Name).value = @(ViewBag.Name)NameArray[i];
+                document.getElementById(this@(ViewBag.Name)Price).value = @(ViewBag.Name)PriceArray[i];
+                document.getElementById(this@(ViewBag.Name)Description).value = @(ViewBag.Name)DescriptionArray[i];
+
+            }
+
+
+            //This code add @(ViewBag.Name) otion details to final step. This code check how many option we have and add only iine new variant (don't reset earlier row)
+            
+        }
+
+
+        //This function add first @(ViewBag.Name) option details in final step
+        //Start function
+
+
+
+
+        //This function add first configure @(ViewBag.Name) option
+        //Begin function
+
+        $("#@(ViewBag.Name)Checkbox").click(function() {
+            if ($("#@(ViewBag.Name)Checkbox").is(':checked')) {
+                $("#@(ViewBag.Name)Configure").removeClass("display-none");
+                $("#@(ViewBag.Name)OptionRest").removeClass("display-none");
+                $("#@(ViewBag.Name)OptionFirst").removeClass("display-none");
+                //This function add first @(ViewBag.Name) option details in final step
+            }
+
+            else {
+                //This function check how many @(ViewBag.Name) option exist (when set checkbox checked) and dend it to final step
+                $("#@(ViewBag.Name)Configure").addClass("display-none");
+                $("#@(ViewBag.Name)OptionRest").addClass("display-none");
+                $("#@(ViewBag.Name)OptionFirst").addClass("display-none");
+                document.getElementById("numberOf@(ViewBag.Name)Option").innerHTML = "none option";
+
+
+
+            }
+        })
+
+      
+
+   
+    </script>
+}

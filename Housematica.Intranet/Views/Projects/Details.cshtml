@@ -1,0 +1,14 @@
+﻿@model Housematica.Data.Data.CMS.Projects
+
+@await Component.InvokeAsync("ProjectDetailComponent", Model)
+
+@section Scripts{
+    <!--begin::Page Scripts(used by this page)-->
+    <script>
+    var currentProjectId = "@Model.IdProject";
+    </script>
+    <script src="~/assets/js/pages/widgets.js"></script>
+    <script src="~/assets/js/crudOperations.js"></script>
+    <script src="https://unpkg.com/@("@")lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!--end::Page Scripts-->
+}

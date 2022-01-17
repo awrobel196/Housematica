@@ -1,0 +1,393 @@
+﻿@model IEnumerable<Housematica.Intranet.ViewModel.ProjectsViewModel>
+<!--begin::Content-->
+<div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-4  subheader-transparent " id="kt_subheader">
+        <div class=" container  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Details-->
+            <div class="d-flex align-items-center flex-wrap mr-2">
+
+                <!--begin::Title-->
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+                    Projekty
+                </h5>
+                <!--end::Title-->
+                <!--begin::Separator-->
+                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"></div>
+                <!--end::Separator-->
+                <!--begin::Search Form-->
+                <div class="d-flex align-items-center" id="kt_subheader_search">
+                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">
+                        @Model.Count() Łącznie
+                    </span>
+
+                </div>
+                <!--end::Search Form-->
+                <!--begin::Group Actions-->
+                <div class="d-flex- align-items-center flex-wrap mr-2 d-none" id="kt_subheader_group_actions">
+                    <div class="text-dark-50 font-weight-bold">
+                        <span id="kt_subheader_group_selected_rows">23</span> Selected:
+                    </div>
+                    <div class="d-flex ml-6">
+                        <div class="dropdown mr-2" id="kt_subheader_group_actions_status_change">
+                            <button type="button" class="btn btn-light-primary font-weight-bolder btn-sm dropdown-toggle" data-toggle="dropdown">
+                                Update Status
+                            </button>
+                            <div class="dropdown-menu p-0 m-0 dropdown-menu-sm">
+                                <ul class="navi navi-hover pt-3 pb-4">
+                                    <li class="navi-header font-weight-bolder text-uppercase text-primary font-size-lg pb-0">
+                                        Change status to:
+                                    </li>
+                                    <li class="navi-item">
+                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="1">
+                                            <span class="navi-text"><span class="label label-light-success label-inline font-weight-bold">Approved</span></span>
+                                        </a>
+                                    </li>
+                                    <li class="navi-item">
+                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="2">
+                                            <span class="navi-text"><span class="label label-light-danger label-inline font-weight-bold">Rejected</span></span>
+                                        </a>
+                                    </li>
+                                    <li class="navi-item">
+                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="3">
+                                            <span class="navi-text"><span class="label label-light-warning label-inline font-weight-bold">Pending</span></span>
+                                        </a>
+                                    </li>
+                                    <li class="navi-item">
+                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="4">
+                                            <span class="navi-text"><span class="label label-light-info label-inline font-weight-bold">On Hold</span></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn btn-light-success font-weight-bolder btn-sm mr-2" id="kt_subheader_group_actions_fetch" data-toggle="modal" data-target="#kt_datatable_records_fetch_modal">
+                            Fetch Selected
+                        </button>
+                        <button class="btn btn-light-danger font-weight-bolder btn-sm mr-2" id="kt_subheader_group_actions_delete_all">
+                            Delete All
+                        </button>
+                    </div>
+                </div>
+                <!--end::Group Actions-->
+            </div>
+            <!--end::Details-->
+
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class=" container-fluid ">
+            <!--begin::Row-->
+            <div class="row">
+                <!--begin:Modal-->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Szybka edycja</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i aria-hidden="true" class="ki ki-close"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div data-scroll="true" data-height="420">
+
+                                    <form>
+                                        <div class="card-body" style="padding-bottom: 0rem; padding-top: 1rem">
+
+                                            <!--begin:Tooltip-->
+                                            <div class="alert alert-custom alert-info alert-shadow fade show gutter-b" role="alert" style="box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.5);">
+                                                <div class="alert-icon">
+                                                    <span class="svg-icon svg-icon-white svg-icon-xl">
+                                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                                <path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3"></path>
+                                                                <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero"></path>
+                                                            </g>
+                                                        </svg><!--end::Svg Icon-->
+                                                    </span>
+                                                </div>
+                                                <div class="alert-text" style="color: white">
+                                                    Obecnie znajdujesz się w trybie szybkiej edycji</br> <span style="font-size:0.85rem">Dodatkowe opcje edycji znajdziesz <b>TUTAJ</b></span>
+                                                </div>
+                                            </div>
+                                            <!--end:Tooltip-->
+
+                                            <div class="form-group display-none">
+                                                <label for="exampleTextarea">Description</label>
+                                                <textarea class="form-control idInput" id="exampleTextarea" rows="5"></textarea>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="exampleTextarea">Inwestment name <span class="text-danger">*</span></label>
+                                                <input class="form-control projectNameInput" placeholder="" type="text">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleTextarea">Description</label>
+                                                <textarea class="form-control notesInput" id="exampleTextarea" rows="5"></textarea>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <div class="form-group row">
+                                                <label class="col-form-label" style="padding-left: 1.2rem;">Pokaż więcej opcji</label>
+                                                <div class="col-3">
+                                                    <span class="switch switch-icon">
+                                                        <label>
+                                                            <input type="checkbox" name="select" onchange="moreOption()">
+                                                            <span></span>
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group contactPersonForm display-none">
+                                                <label for="exampleTextarea">Contact person <span class="text-danger">*</span></label>
+                                                <input class="form-control contactPersonInput" type="text">
+                                            </div>
+
+                                            <div class="form-group phoneForm display-none">
+                                                <label for="exampleTextarea">Phone number <span class="text-danger">*</span></label>
+                                                <input class="form-control phoneInput" type="text">
+                                            </div>
+
+                                            <div class="form-group emailForm display-none">
+                                                <label for="exampleTextarea">Email adres <span class="text-danger">*</span></label>
+                                                <input class="form-control emailInput" type="text">
+                                            </div>
+
+                                            <div class="form-group adressForm display-none">
+                                                <label for="exampleTextarea">Owner adress <span class="text-danger">*</span></label>
+                                                <input class="form-control adressInput" type="text">
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Anuluj</button>
+                                <button type="button" class="btn btn-primary font-weight-bold" onclick="saveEditProject()">Zapisz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end:Modal-->
+                @foreach (var item in Model)
+                {
+                   
+                        @await Component.InvokeAsync("ProjectItemComponent", item);
+                    
+                   
+
+
+                    
+                }
+
+
+
+
+
+            </div>
+            <!--end::Row-->
+
+
+
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Entry-->
+</div>
+<!--end::Content-->
+@section Scripts{
+    <script src="~/assets/js/pages/features/miscellaneous/sweetalert2.js"></script>
+    <script src="~/assets/js/crudOperations.js"></script>
+    <script>
+
+        function setActive(id) {
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '../Projects/SetActive',
+                    data: {
+                        id: id,
+                    },
+                    success: function () {
+                        $(".close").click();
+
+
+
+                        Swal.fire({
+
+                            icon: "success",
+                            title: "Projekt został aktywowany",
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(function () {
+                            location.reload();
+                        });
+                    },
+                    error:
+                        function (response) {
+                            alert("Error: " + response);
+                        }
+                });
+        }
+
+        function setInactive(id) {
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '../Projects/SetInactive',
+                    data: {
+                        id: id,
+                    },
+                    success: function () {
+                        $(".close").click();
+
+
+
+                        Swal.fire({
+
+                            icon: "success",
+                            title: "Projekt został dezaktywowany",
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(function () {
+                            location.reload();
+                        });
+                    },
+                    error:
+                        function (response) {
+                            alert("Error: " + response);
+                        }
+                });
+        }
+
+        function moreOption() {
+            if ($(".contactPersonForm").hasClass("display-none")) {
+                $(".contactPersonForm").removeClass("display-none")
+                $(".phoneForm").removeClass("display-none")
+                $(".adressForm").removeClass("display-none")
+                $(".emailForm").removeClass("display-none")
+            } else {
+                $(".contactPersonForm").addClass("display-none")
+                $(".phoneForm").addClass("display-none")
+                $(".emailForm").addClass("display-none")
+                $(".adressForm").addClass("display-none")
+            }
+
+        }
+
+        function saveEditProject() {
+            var ProjectName = $('.projectNameInput').val();
+            var ProjectDescription = $('.notesInput').val();
+            var ContactPerson = $('.contactPersonInput').val();
+            var OwnerPhone = $('.phoneInput').val();
+            var OwnerEmail = $('.emailInput').val();
+            var OwnerAdress = $('.adressInput').val();
+            var IdProject = $('.idInput').val();
+
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '../Projects/EditItem',
+                    data: {
+                        ProjectName: ProjectName,
+                        ProjectDescription: ProjectDescription,
+                        ContactPerson: ContactPerson,
+                        OwnerPhone: OwnerPhone,
+                        OwnerEmail: OwnerEmail,
+                        OwnerAdress: OwnerAdress,
+                        IdProject: IdProject
+                    },
+                    success: function () {
+                        $(".close").click();
+
+
+
+                        Swal.fire({
+
+                            icon: "success",
+                            title: "Pomyślnie zmomdyfikowano projekt",
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(function () {
+                            location.reload();
+                        });
+                    },
+                    error:
+                        function (response) {
+                            alert("Error: " + response);
+                        }
+                });
+        }
+
+
+        function editProject(IdProject) {
+            Swal.fire({
+                title: "Trwa wczytywanie danych",
+                text: "Wczytywanie za chwilę się zakończy",
+                timer: 5,
+                showConfirmButton: false,
+                closeOnConfirm: false,
+                showCancelButton: false,
+                closeOnCancel: false,
+                onOpen: function () {
+                    Swal.showLoading();
+
+                }
+            }).then(function () {
+                $.ajax(
+                    {
+                        type: 'POST',
+                        dataType: 'JSON',
+                        async: false,
+                        url: '../Projects/EditGetItem',
+                        data: {
+                            id: IdProject,
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('.projectNameInput').val(data[0].ProjectName);
+                            $('.notesInput').text(data[0].ProjectDescription);
+                            $('.contactPersonInput').val(data[0].ContactPerson);
+                            $('.phoneInput').val(data[0].OwnerPhone);
+                            $('.emailInput').val(data[0].OwnerEmail);
+                            $('.adressInput').val(data[0].OwnerAdress);
+                            $('.idInput').val(data[0].IdProject);
+                        },
+                        error: function () {
+                            console.log("false");
+                        },
+
+                    });
+            }).then(function () {
+                Swal.close();
+            })
+
+
+
+
+        }
+    </script>
+}

@@ -1,0 +1,143 @@
+﻿@model Housematica.Data.Data.CMS.House
+
+
+<div class="pb-5" data-wizard-type="step-content" id="variantStep">
+    <h4 class="mb-10 font-weight-bold text-dark">
+        Warianty domu
+    </h4>
+    <!--begin::Input-->
+    <h3 class="text-dark-25">Standardowy układ domu</h3>
+    <div id="variant" class="I">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="form-group">
+                    <label>Powierzchnia domu</label>
+                    <input type="text"
+                           class="form-control form-control-solid form-control-lg"
+                           id="apartmentArea"
+                           asp-for="HouseVariants[0].HouseArea"
+                           placeholder="Apartment area"
+                           oninput="sendToFinalStep(this)" />
+                    <span class="form-text text-muted">
+                        Powierzchnia domu (w
+                        m<sup>2</sup>).
+                    </span>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="form-group">
+                    <label>Powierzchnia balkonów i tarasu</label>
+                    <input type="text"
+                           class="form-control form-control-solid form-control-lg"
+                           id="balconyArea"
+                           asp-for="HouseVariants[0].TerraceArea"
+                           placeholder="Powierzchnia balkonów i tarasu"
+                           oninput="sendToFinalStep(this)" />
+                    <span class="form-text text-muted">
+                        Wpisz powierzchnie balkonów i tarasu (w
+                        m<sup>2</sup>).
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="form-group">
+                    <label>Liczba pomieszczeń</label>
+                    <input min="0" type="number"
+                           class="form-control form-control-solid form-control-lg"
+                           asp-for="HouseVariants[0].HouseRooms[0].RoomArea"
+                           placeholder="Liczba pomieszczeń" id="1"
+                           onwheel="return false;"
+                           onkeyup="addRooms(this.id)"
+                           onclick="addRooms(this.id)"
+                           oninput="sendToFinalStep(this)" />
+                    <span class="form-text text-muted">
+                        Wpisz liczbę pomieszczeń domu
+                    </span>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="form-group">
+                    <label>Liczba pokoi</label>
+                    <input type="number"
+                           id="numberLivingRoom roomNumber"
+                           min="0" ;
+                           onwheel="return false;"
+                           class="form-control form-control-solid form-control-lg"
+                           asp-for="HouseVariants[0].NumberOfLivingRoom"
+                           placeholder="Liczba pokoi" value=""
+                           oninput="sendToFinalStep(this)" />
+                    <span class="form-text text-muted">
+                        Wpisz liczbę pokoi domu
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Input-->
+
+
+
+    <div class="row" id="placeToHtml1">
+
+
+
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="form-group">
+
+
+                <label>Cena domu</label>
+                <input type="text"
+                       id="apartmentPrice"
+                       class="form-control form-control-solid form-control-lg"
+                       asp-for="HouseVariants[0].HousePrice"
+                       placeholder="Cena apartamentu" value=""
+                       oninput="sendToFinalStep(this)" />
+                <span class="form-text text-muted">
+                    Wpisz cenę domu
+                </span>
+
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="form-group">
+
+                <label>Model apartamentu</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input"
+                           id="ApartmentVariant1" multiple name="standard3dFile" multiple
+                           onchange="readURL(this)" />
+
+
+                    <label class="custom-file-label"
+                           for="customFile">Wybierz plik</label>
+                    <span class="form-text text-muted">
+                        Wybierz model 3D apartamentu
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <input type="text" asp-for="HouseVariants[0].HouseModel" class="ApartmentVariant1" />
+    </div>
+
+
+    <div id="placeToVariant">
+
+
+
+    </div>
+
+
+
+    <a onclick="addApartmentVariant()"
+       class="btn-block btn btn-light btn-text-primary btn-hover-text-primary font-weight-bold">
+        Dodaj kolejny wariant
+    </a>
+
+</div>

@@ -1,0 +1,157 @@
+﻿@model Housematica.NewWWW.ViewModels.KartaViewModel
+@{ 
+    Layout = null;
+}
+<html>
+
+<head>
+    <link href="~/assetsKartaMieszkania/styles/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="parent">
+
+        <div class="left">
+            <div style="display: flex; height: 11vh;
+           ">
+                <div class="logo">
+                    <img src="../../assetsKartaMieszkania/media/logo.png">
+                </div>
+
+                <div class="owner-info" style="margin-left: 5%;">
+                    <h5>@Model.owner</h5>
+                    <p>@Model.contactPerson</p>
+                    <p>tel.: +48 @Model.phone</p>
+                    <p>@Model.email</p>
+
+                </div>
+
+
+
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr;  grid-template-rows:2vh">
+                <div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr;  grid-template-rows:10vh">
+                <div class="project-title">
+                    <h4 class="navy-blue">@Model.projectName</h4>
+                    <hr>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 4fr 3fr;  grid-template-rows:10vh">
+                <div class="house-title">
+                    <h4 class="navy-blue">Mieszkanie @Model.apartmentName</h4>
+                </div>
+
+                <div class="house-info" style="text-align: right; padding-top: 1vh;">
+                    <p>Kondygnacja: <span class="value">@Model.floor</span></p>
+                    <p>Powierzchnia: <span class="value">@Model.area m<sup>2</sup></span></p>
+                    <p>Balkon: <span class="value">@Model.balconArea m<sup>2</sup></span></p>
+                </div>
+
+
+            </div>
+
+            <div class="project-photo" style="display: grid; grid-template-columns: 1fr; grid-template-rows:53vh">
+                <div style="text-align: center; background: url('../../assetsKartaMieszkania/media/background.jpg') no-repeat center; background-size: cover;">
+                </div>
+
+
+            </div>
+
+            <div class="border footer" style="display: grid; grid-template-columns: 1fr; grid-template-rows:4vh; ">
+                <div class="notes" style="text-align: center;">
+                    <p>
+                        Przedstawione wizualizacje mają charakter poglądowy. Wygląd budynków oraz zagospodarowanie terenu
+                        mogą ulec zmianą w czasie realizacji inwestycji
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="center">
+
+        </div>
+
+
+        <div class="right">
+            <div style="height: 50vh; background: url('../../assetsKartaMieszkania/media/plan.jpeg') no-repeat; background-position: center; background-size: contain;">
+
+
+            </div>
+
+            <div style="height: 30vh; display: grid; grid-template-columns: 10fr 1fr 10fr;" class="room-container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr;">
+
+                    <div class="room-table left-room-table">
+                        @{ var i = 0;
+                            foreach (var item in Model.rooms)
+                            {
+                                i = i + 1;
+                                <p>@i. @item.RoomName</p>
+                            }
+                        }
+                    </div>
+
+                    <div class="room-table right-room-table">
+                        @{ var j = 0;
+                            foreach (var item in Model.rooms)
+                            {
+                                j = j + 1;
+                                <p>@item.RoomArea m<sup>2</sup></p>
+                            }
+                        }
+                    </div>
+                </div>
+                <div style="border-right:1px solid #e6e6e6; margin: 1vh;" class="table-line"></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr;">
+
+                    <div class="room-table left-room-table">
+                        <p>1. Wiatrołap</p>
+                        <p>1. Wiatrołap</p>
+                        <p>1. Wiatrołap</p>
+                        <p>1. Wiatrołap</p>
+                        <p>1. Wiatrołap</p>
+                        <p>1. Wiatrołap</p>
+                        <p>1. Wiatrołap</p>
+                        <p>1. Wiatrołap</p>
+                    </div>
+
+                    <div class="room-table right-room-table">
+                        <p>32 m<sup>2</sup></p>
+                        <p>32 m<sup>2</sup></p>
+                        <p>32 m<sup>2</sup></p>
+                        <p>32 m<sup>2</sup></p>
+                        <p>32 m<sup>2</sup></p>
+                        <p>32 m<sup>2</sup></p>
+                        <p>32 m<sup>2</sup></p>
+                        <p>32 m<sup>2</sup></p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 10vh; background-color: #021347;
+            color: white;">
+                <div class="notes notes-right" style="text-align: center; padding-top: 2vh;">
+                    <p>
+                        Wymiary pomieszczeń, lokalizacje ścian i okien podano na podstawie projektu budowlanego. W toku
+                        realizacji inwestycji mogą wystąpić różnice w stosunku do projektu, spowodowane specyfiką prac
+                        budowlanych.
+                    </p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

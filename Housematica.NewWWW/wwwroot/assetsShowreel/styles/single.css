@@ -1,0 +1,894 @@
+/*Table of Contents
+
+1. Font declaration
+2a. Loader click screen
+2. Headings + Global styles
+3. Colors
+4. Margins
+5. Structure
+6. Right section
+7. Scroll
+8. Popup
+9. Switch
+10. Loader
+*/
+
+/* 1. Font declaration */
+
+.display-none {
+    display: none !important;
+}
+
+
+@font-face {
+    font-family: MYing-Black;
+    src: url('../fonts/MYingW7.woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MYing-Bold;
+    src: url('../fonts/MYingW5.woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MYing-Regular;
+    src: url('../fonts/MYingW4.woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MYing-Thin;
+    src: url('../fonts/MYingW3.woff2');
+    font-display: swap;
+}
+
+/*=====================================*/
+
+
+
+
+
+/* 2a. Loader click screen */
+.loader-append {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+}
+
+.loader-text {
+    z-index: 2;
+    position: absolute;
+    font-family: MYing-Black;
+    color: #4a4a4a;
+    cursor: pointer;
+}
+
+.loader-text i{
+    font-size: calc(10vh + 30px);
+}
+
+.loader-text p {
+    font-size: calc(1vh + 15px);
+    margin-top: 4vh;
+}
+
+
+
+.loader-body {
+    width: 100vw; 
+    height: 100vh; 
+    background-color: #949494; 
+    opacity: 0.7; 
+    position: absolute; 
+    z-index: 1
+}
+
+/*=====================================*/
+/* 2. Headings + Global styles */
+canvas {
+    width: 100%;
+    height: 100%;
+    overflow: unset;
+    border: none !important;
+    outline: none !important;
+    display: block;
+}
+
+body {
+    background-color: white;
+    overflow: hidden;
+}
+
+.logo {
+    width: 5vh;
+    position: absolute;
+    left: 5vh;
+    top: 5vh;
+}
+
+h1 {
+    margin-top: 0.5vh;
+    font-family: MYing-Black;
+    font-size: 2.5vh;
+}
+
+h3 {
+    margin-top: 3.5vh;
+    font-family: MYing-Bold;
+    font-size: 1.5vh;
+}
+
+h4 {
+    margin-top: 1vh;
+    font-family: MYing-Bold;
+    font-size: 1.5vh;
+}
+
+h5 {
+    font-family: MYing-Bold;
+    font-size: 2.5vh;
+}
+
+h6 {
+    font-family: MYing-Bold;
+    font-size: 1.5vh;
+    display: inline-block;
+}
+
+/*=====================================*/
+
+/* 3. Colors */
+
+.primary-blue {
+    color: #007bff;
+}
+
+.primary-gray {
+    color: #6f6f6f;
+}
+
+.primary-black {
+    color: #060606;
+}
+
+/*=====================================*/
+
+/* 4. Margins */
+
+.margin-top-standard-1x {
+    margin-top: 1vh;
+}
+
+.margin-top-standard-1-5x {
+    margin-top: 1.5vh;
+}
+
+.margin-top-standard-2x {
+    margin-top: 2vh;
+}
+
+.margin-top-standard-2-5x {
+    margin-top: 2.5vh;
+}
+
+.margin-top-standard-3x {
+    margin-top: 3vh;
+}
+
+.margin-top-standard-3-5x {
+    margin-top: 3.5vh;
+}
+
+.margin-top-standard-4x {
+    margin-top: 4vh;
+}
+
+.margin-bottom-standard-1x {
+    margin-bottom: 1vh;
+}
+
+.margin-bottom-standard-1-5x {
+    margin-bottom: 1.5vh;
+}
+
+.margin-bottom-standard-2x {
+    margin-bottom: 2vh;
+}
+
+.margin-bottom-standard-2-5x {
+    margin-bottom: 2.5vh;
+}
+
+.margin-bottom-standard-3x {
+    margin-bottom: 3vh;
+}
+
+.margin-bottom-standard-3-5x {
+    margin-bottom: 3.5vh;
+}
+
+.margin-bottom-standard-4x {
+    margin-bottom: 4vh;
+}
+
+/*=====================================*/
+
+/* 5. Structure */
+
+.right-section {
+    right: 0vh;
+    position: absolute;
+    background-color: white;
+    width: 25%;
+    height: 100%;
+    box-shadow: rgb(0 123 255 / 20%) 0px 7px 29px 0px;
+}
+
+.content {
+    width: 75%;
+    height: 100%;
+    background-color: #e7e7e7;
+    position: absolute;
+}
+
+/*=====================================*/
+
+/* 6. Right Section */
+
+
+div .photo {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+div .photo img {
+    width: 32%;
+    margin-bottom: 2%;
+    border-radius: 1vh;
+    height: 10vh;
+    object-fit: cover;
+}
+
+.file-mobile, .file-section-mobile {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .file-section-mobile .file-section-mobile-row {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        margin: 0vh;
+        margin-bottom: 2vh;
+        padding: 1vh;
+        cursor: pointer;
+        border-radius: 1vh;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+        .file-section-mobile .file-section-mobile-row:last-child {
+            margin-bottom: 3vh;
+        }
+
+.file-section-mobile-row div {
+    display: flex;
+    width: 50%;
+}
+
+    .file-section-mobile-row div:first-child {
+        display: flex;
+        justify-content: left;
+    }
+
+    .file-section-mobile-row div:last-child {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+        .file-section-mobile-row div:last-child i {
+            color: #007bff;
+            font-size: 2vh;
+            margin-top: 0.3vh;
+            margin-left: 2vh;
+        }
+
+
+
+.file-section-mobile div:first-child {
+    margin-left: 0vh !important;
+}
+
+.file-section-mobile div:last-child {
+    margin-right: 0vh !important;
+}
+
+.file-section-mobile div i {
+    color: #007bff;
+    font-size: 3vh;
+}
+
+.file-section-mobile div p {
+    margin-top: 0.6vh;
+    margin-left: 1.8vh;
+    font-family: MYing-Bold;
+    font-size: 1.7vh;
+}
+
+
+
+.right-section .content {
+    margin-top: 5vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    width: 80%;
+    background-color: white;
+}
+
+    .right-section .content .single-image {
+        width: 100%;
+        height: 25vh;
+        border-radius: 20px;
+    }
+
+
+.close-section {
+    display: none;
+}
+
+.circle {
+    width: 4.2vh;
+    height: 4.2vh;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: #F5F5F5;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 0.3vw;
+    text-align: center;
+}
+
+    .circle .icon {
+        margin-top: 1.2vh;
+        font-size: 1.7vh;
+        color: #6f6f6f;
+    }
+
+.condygnation-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .condygnation-name .icon {
+        color: #007bff;
+        cursor: pointer;
+        font-size: 1.3vh;
+    }
+
+.price {
+    display: inline-block;
+    position: absolute;
+    margin-top: 3.2vh;
+    left: 12vw;
+    font-size: 2.3vh;
+    font-family: MYing-Black;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .info-section div {
+        overflow: hidden;
+        display: inline-block;
+        color: #6f6f6f;
+        font-size: 1.4vh;
+        font-family: MYing-Bold;
+        padding-bottom: 0.5vh;
+        padding-top: 0.5vh;
+    }
+
+
+
+        .info-section div .icon {
+            font-size: 1.4vh;
+            margin-right: 0.6vh;
+        }
+
+.mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
+    display: none !important;
+}
+
+.map-box {
+    border-radius: 25px;
+    width: 100%;
+    height: 20vh;
+}
+
+p.description {
+    font-family: MYing-Regular;
+    line-height: 1.2rem;
+    text-align: justify;
+    font-size: 0.9rem;
+}
+
+.room-section div {
+    display: inline-block;
+    width: 48%;
+    margin-top: 1.5vh;
+}
+
+    .room-section div .element {
+        width: 100%;
+        margin-top: 0vh;
+        margin-top: 0vh;
+        display: flex;
+        justify-content: space-between;
+    }
+
+.room-section {
+    padding-bottom: 3vh;
+}
+
+.room-list div {
+    display: flex;
+    margin-top: 1.5vh;
+    justify-content: space-between;
+}
+
+    .room-list div span {
+        font-family: MYing-Regular;
+    }
+
+        .room-list div span.area {
+            font-family: MYing-Bold;
+        }
+
+.file-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .file-section div {
+        width: 33%;
+        text-align: center;
+        margin: 1vh;
+        padding: 1vh;
+        cursor: pointer;
+        border-radius: 1vh;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        animation-name: restore-shadow;
+        animation-duration: 1s;
+    }
+
+        .file-section div:hover {
+            box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+            animation-name: make-shadow;
+            animation-duration: 1s;
+        }
+
+@keyframes restore-shadow {
+    from {
+        box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    }
+
+    to {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+}
+
+@keyframes make-shadow {
+    from {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    to {
+        box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    }
+}
+
+.file-section div:first-child {
+    margin-left: 0vh !important;
+}
+
+.file-section div:last-child {
+    margin-right: 0vh !important;
+}
+
+.file-section div i {
+    color: #007bff;
+    font-size: 8vh;
+}
+
+.file-section div p {
+    margin-top: 1vh;
+    font-family: MYing-Regular;
+    font-size: 1.5vh;
+}
+
+/*=====================================*/
+
+/* 7. Scroll*/
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(13deg, #007bff 14%, #007bff 64%);
+    border-radius: 8px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(13deg, #0F6DD9 14%, #0f6dd9 64%);
+    }
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
+/*=====================================*/
+
+/* 8. Popup*/
+
+
+.white-popup-max {
+    border-radius: 1vh;
+    position: relative;
+    background: #FFF;
+    padding: 25px;
+    width: auto;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.white-popup {
+    border-radius: 1vh;
+    position: relative;
+    background: #FFF;
+    padding: 25px;
+    width: auto;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.popup-title {
+    font-size: 2.5vh;
+    font-family: 'MYing-Black';
+    text-align: center;
+}
+
+.popup-content {
+    font-size: 1.4vh;
+    font-family: 'MYing-Regular';
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.mfp-close {
+    color: #2D95EF !important;
+    opacity: 1 !important;
+}
+
+.mfp-zoom-out .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.3);
+}
+
+.mfp-zoom-out.mfp-bg {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.mfp-zoom-out.mfp-ready .mfp-with-anim {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.mfp-zoom-out.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-zoom-out.mfp-removing .mfp-with-anim {
+    transform: scale(1.3);
+    opacity: 0;
+}
+
+.mfp-zoom-out.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
+/*=====================================*/
+
+/* 10. Loader*/
+
+.loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    display: block;
+}
+
+
+    .loader lottie-player {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        width: 100px;
+        height: 100px;
+    }
+
+.loader-hide {
+    animation-name: loader-hide-animation;
+    animation-duration: 2s;
+    opacity: 0;
+    height: 0px;
+}
+
+@keyframes loader-hide-animation {
+
+    0% {
+        opacity: 1;
+        filter: blur(0);
+        height: 100%;
+    }
+
+    50% {
+        opacity: 1;
+        filter: blur(0);
+        height: 100%;
+    }
+
+    99% {
+        opacity: 0;
+        filter: blur(1.5rem);
+        height: 100%;
+    }
+
+    100% {
+        height: 0px;
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 980px) {
+    /* For mobile phones: */
+
+
+
+    .file-mobile, .file-section-mobile {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .file-section-mobile .file-section-mobile-row {
+            display: flex;
+            width: 100%;
+            text-align: center;
+            margin: 0vh;
+            margin-bottom: 2vh;
+            padding: 1vh;
+            cursor: pointer;
+            border-radius: 1vh;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+            .file-section-mobile .file-section-mobile-row:last-child {
+                margin-bottom: 6vh !important;
+            }
+
+    .file-section-mobile-row div {
+        display: flex;
+        width: 50%;
+    }
+
+        .file-section-mobile-row div:first-child {
+            display: flex;
+            justify-content: left;
+        }
+
+        .file-section-mobile-row div:last-child {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+            .file-section-mobile-row div:last-child i {
+                color: #007bff;
+                font-size: 2vh;
+                margin-top: 0.9vh;
+                margin-left: 2vh;
+            }
+
+
+
+    .file-section-mobile div:first-child {
+        margin-left: 0vh !important;
+    }
+
+    .file-section-mobile div:last-child {
+        margin-right: 0vh !important;
+    }
+
+    .file-section-mobile div i {
+        color: #007bff;
+        font-size: 4vh;
+    }
+
+    .file-section-mobile div p {
+        margin-top: 1.1vh;
+        margin-left: 1.8vh;
+        font-family: MYing-Bold;
+        font-size: 1.7vh;
+    }
+
+
+
+
+
+    
+
+    .mapboxgl-marker svg {
+        height: 4vh !important;
+        width: 14vw !important;
+    }
+
+    .right-section {
+        display: none;
+    }
+
+    .close-section {
+        width: 100%;
+        height: 5vh;
+        background-color: #007bff;
+        position: fixed;
+        z-index: 1;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+        .close-section span {
+            font-size: 2vh;
+            color: white;
+            font-family: 'MYing-Bold';
+            margin-top: 1.5vh;
+        }
+
+
+    .right-section-show {
+        display: initial !important;
+        width: 100% !important;
+        animation-name: opacity-right-section-show;
+        animation-duration: 0.5s;
+        height: 100vh;
+    }
+
+    @keyframes opacity-right-section-show {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .display-none {
+        display: none !important;
+    }
+
+    .right-section-hide {
+        display: initial;
+        width: 100% !important;
+        animation-name: opacity-right-section-hide;
+        animation-duration: 0.5s;
+        opacity: 0;
+        height: 0px;
+    }
+
+    @keyframes opacity-right-section-hide {
+        0% {
+            opacity: 1;
+            height: 100%;
+            display: initial;
+        }
+
+        99% {
+            opacity: 0;
+            height: 100%;
+            display: initial;
+        }
+
+        100% {
+            height: 0px;
+            display: none !important;
+        }
+    }
+
+    .close-section-hide {
+        width: 0px;
+        animation-name: opacity-close-section-hide;
+        animation-duration: 0.5s;
+    }
+
+    @keyframes opacity-close-section-hide {
+        0% {
+            width: 100%;
+        }
+
+        99% {
+            width: 100%;
+        }
+
+        100% {
+            width: 0px;
+        }
+    }
+
+
+
+    .price {
+        right: 0px !important;
+        left: unset !important;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    p.description {
+        line-height: 2.9rem !important;
+        font-size: 2.1rem !important;
+    }
+
+    .switch-container {
+        width: 100% !important;
+        bottom: 8vh !important;
+    }
+
+    .switch .element {
+        padding-left: 2.8vw !important;
+        padding-right: 2.8vw !important;
+        font-size: 1.5vh !important;
+    }
+
+    .show-menu {
+        width: 100%;
+        height: 5vh;
+        background-color: #007bff;
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+        .show-menu span {
+            font-size: 2vh;
+            color: white;
+            font-family: 'MYing-Bold';
+            margin-top: 1.5vh;
+        }
+
+    .loader lottie-player {
+        left: calc(50% - 6vh) !important;
+        top: calc(50% - 6vh) !important;
+        width: 12vh;
+        height: 12vh;
+    }
+}

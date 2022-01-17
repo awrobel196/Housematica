@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+
+}
+
+@model Guid 
+
+<!--begin::Content-->
+<div class="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
+    <!--begin::Content body-->
+    <div class="d-flex flex-column-fluid flex-center">
+        <!--begin::Signin-->
+        <div class="login-form login-signin">
+            <!--begin::Form-->
+            <form class="form" novalidate="novalidate" id="kt_login_signin_form">
+                <!--begin::Title-->
+                <div class="pb-13 pt-lg-0 pt-5">
+                    <p class="text-muted font-weight-bold font-size-h4">Twój znajomy zaprosił Cię do swojego zespołu! Uzupełnij formularz aby do niego dołączyć</p>
+                </div>
+                <!--end::Title-->
+                <!--begin::Form group-->
+                <div class="form-group" data-form="licenseId">
+                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text"  autocomplete="off" data-field='licenseId' readonly value="@Model" />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <!--end::Form group-->
+                <!--begin::Form group-->
+                <div class="form-group" data-form="registerName">
+                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Imię" name="fullname" autocomplete="off" data-field='registerName' />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <!--end::Form group-->
+                <!--begin::Form group-->
+                <div class="form-group" data-form="registerSurname">
+                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="text" placeholder="Nazwisko" name="fullname" autocomplete="off" data-field='registerSurname' />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <!--end::Form group-->
+                <!--begin::Form group-->
+                <div class="form-group" data-form="registerEmail">
+                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" data-field='registerEmail' />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <!--end::Form group-->
+                <!--begin::Form group-->
+                <div class="form-group" data-form="registerPassword">
+                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Hasło" name="password" autocomplete="off" data-field='registerPassword' />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <!--end::Form group-->
+                <!--begin::Form group-->
+                <div class="form-group" data-form="registerConfirmPassword">
+                    <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" type="password" placeholder="Powtórz hasło" name="cpassword" autocomplete="off" data-field='registerConfirmPassword' />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <!--end::Form group-->
+                <!--begin::Form group-->
+                <div class="form-group validated" data-form="registerPolicy">
+                    <div class="checkbox-inline">
+                        <label class="checkbox checkbox-outline">
+                            <input type="checkbox" data-field='registerPolicy'>
+                            <span></span>
+                            Akceptuję &nbsp;<a href="#">regulamin</a> &nbsp;portalu Housematica
+                        </label>
+                    </div>
+                    <div class="invalid-feedback"></div>
+
+                </div>
+
+
+                <!--end::Form group-->
+                <!--begin::Form group-->
+                <div class="form-group d-flex flex-wrap pb-lg-0 pb-3">
+
+
+
+
+                    <button type="button" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4" onclick="register()" buton-type="registerButton">Zarejestruj się</button>
+
+                    <button type="button" style="padding-right:40px !important" id="kt_login_signin_submit" class="spinner spinner-white spinner-right btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3 display-none" buton-type="loaderRegisterButton">Ładowanie</button>
+
+                    <button type="button" id="kt_login_signup_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Anuluj</button>
+                </div>
+                <!--end::Form group-->
+            </form>
+</div>
+        <!--end::Signin-->
+
+ 
+    </div>
+    <!--end::Content body-->
+    <!--begin::Content footer-->
+    <div class="d-flex justify-content-lg-start justify-content-center align-items-end py-7 py-lg-0">
+        <a href="#" class="text-primary font-weight-bolder font-size-h5">Terms</a>
+        <a href="#" class="text-primary ml-10 font-weight-bolder font-size-h5">Plans</a>
+        <a href="#" class="text-primary ml-10 font-weight-bolder font-size-h5">Contact Us</a>
+    </div>
+    <!--end::Content footer-->
+</div>
+<!--end::Content-->
+

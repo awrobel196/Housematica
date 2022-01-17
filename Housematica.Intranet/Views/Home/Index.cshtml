@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@await Component.InvokeAsync("LicenseAlertComponent", ViewBag.User)
+
+<h1 id="json"></h1>
+<!--begin::Entry-->
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class=" container-fluid ">
+        <!--begin::Row-->
+        <div class="row">
+            <div class="col-xl-3">
+                @await Component.InvokeAsync("LicenseWidgetComponent", new Guid(ViewBag.License))
+            </div>
+            <div class="col-xl-3">
+                <!--begin::Widget współpracownicy w projektach-->
+                @await Component.InvokeAsync("TeamWidgetComponent", new Guid(ViewBag.License))
+                <!--end::Widget współpracownicy w projektach-->
+            </div>
+            <div class="col-xl-6">
+                @await Component.InvokeAsync("NotificationWidgetComponent", new Guid(ViewBag.License))
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-6">
+                @await Component.InvokeAsync("ProjectsViewWidgetComponent", new Guid(ViewBag.License))
+            </div>
+            <div class="col-xl-4">
+                @await Component.InvokeAsync("ProjectsClickWidgetComponent", new Guid(ViewBag.License))
+            </div>
+            <div class="col-xl-2">
+                @await Component.InvokeAsync("ProjectsFileWidgetComponent", new Guid(ViewBag.License))
+            </div>
+        </div>
+        <!--end::Row-->
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Entry-->
+
+@section Scripts {
+    <script>
+       var License = "@ViewBag.License";
+        $(document).ready(function () {
+            if ($("#licenseButton").length) {
+                $("#licenseButton").click();
+            }
+        });
+
+    </script>
+    <script src="~/assets/js/pages/dashboardWidgets.js"></script>
+    <script src="https://unpkg.com/@("@")lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+}

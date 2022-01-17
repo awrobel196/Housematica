@@ -1,0 +1,85 @@
+﻿@model Housematica.Data.Data.CMS.Single;
+@using System.Globalization;
+@{
+
+    Layout = "~/Views/Shared/_ShowreelLayout.cshtml";
+}
+
+@section styles{
+<style>
+    #switchName {
+        font-size: calc(12px + 0.12vw) !important;
+    }
+
+    #frameElement {
+        padding-top: 0px;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .logo{
+        min-width: 40px;
+    }
+</style>
+}
+<div class="loader">
+
+    <lottie-player src="../../assets/media/lottie/lf30_editor_jzrmetke.json" background="transparent" speed="1" loop autoplay></lottie-player>
+</div>
+
+<div class="loader-append" onclick="loaderAppendHide();">
+    <div class="loader-text" style="display: flex;  justify-content: center;
+                                    align-items: center; flex-direction: column">
+        <i class="fas fa-street-view"></i>
+        <p>Kliknij aby zobaczyć w 3D</p>
+    </div>
+    <div class="loader-body">
+
+    </div>
+</div>
+
+<div class="content" style="width: 100% !important">
+    <canvas id="renderCanvas"></canvas>
+    <img src="~/assetsShowreel/media/logosvg.svg" class="logo" />
+    <div class="show-menu" onclick="showDetails()" style="display: none !important">
+        <span>Pokaż szczegóły</span>
+    </div>
+</div>
+<div class="switch-container" style="width: 100% !important; min-height: 30px; ">
+    <div class="switch">
+
+        @{
+            var k = 1;
+            foreach (var kondygnacja in Model.SingleFloor)
+            {
+                if (k == 1)
+                {
+                    <div class="element checked" id="frameElement" onclick="select(this); changeScene('@kondygnacja.IdSingleFloor')" >
+                        <span id="switchName">@kondygnacja.FloorName</span>
+                    </div>
+                    k++;
+                }
+                else
+                {
+                    <div class="element " id="frameElement" onclick="select(this); changeScene('@kondygnacja.IdSingleFloor')">
+                        <span id="switchName">@kondygnacja.FloorName</span>
+                    </div>
+                    k++;
+                }
+            }
+        }
+
+
+
+    </div>
+</div>
+
+
+
+
+
+@section scripts{
+    @await Component.InvokeAsync("BabylonComponent", Model)
+
+}
+

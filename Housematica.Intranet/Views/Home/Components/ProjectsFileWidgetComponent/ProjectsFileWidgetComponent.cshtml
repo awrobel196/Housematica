@@ -1,0 +1,29 @@
+﻿@model IEnumerable<string>
+
+
+@foreach (var item in Model)
+{
+    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
+        <!--begin::Card-->
+        <div class="card card-custom gutter-b card-stretch">
+           
+            <div class="card-body ribbon-clip ribbon ribbon-left">
+                <div class="ribbon-target" style="top: 12px;">
+                    <span class="ribbon-inner bg-warning"></span>Podgląd
+                </div>
+                <div class="d-flex flex-column align-items-center" style="margin-top: 2.6rem">
+                    <!--begin: Icon-->
+                    <img alt="" class="max-h-95px" src="~/assets/media/svg/files/jpg.svg">
+                    <!--end: Icon-->
+                    <!--begin: Tite-->
+                    <a href="#" class="text-dark-75 font-weight-bold mt-15 font-size-lg" style="margin-top:2.45rem !important">
+                        @item
+                    </a>
+                    <!--end: Tite-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end:: Card-->
+
+}

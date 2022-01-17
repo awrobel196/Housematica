@@ -1,0 +1,1085 @@
+@font-face {
+    font-family: MYing-Black;
+    src: url('../fonts/MYingW7.woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MYing-Bold;
+    src: url('../fonts/MYingW5.woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MYing-Regular;
+    src: url('../fonts/MYingW4.woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MYing-Thin;
+    src: url('../fonts/MYingW3.woff2');
+    font-display: swap;
+}
+
+:root {
+    --blue: #2D95EF;
+    --dark-blue: #288ee7;
+}
+
+/*Global styles*/
+
+html {
+    font-size: 10px;
+}
+
+/*===============================================================*/
+
+/* Modyfication type eg: models, colours, wheels etc */
+.options-element {
+    display: none;
+}
+
+.options-element-active {
+    opacity: 0;
+    display: block;
+    animation-name: options-element-active-animation;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes options-element-active-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.modyfication-type-col {
+    cursor: pointer;
+}
+
+.nav-element {
+    font-family: MYing-Black;
+    font-size: 1.6vw;
+    align-self: center;
+    color: #CCCCCC;
+}
+
+    .nav-element.inactive-nav-element {
+        font-family: MYing-Black;
+        font-size: 1.6vw;
+        align-self: center;
+        color: #060606;
+        animation-name: example2;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+    }
+
+    .nav-element.active-nav-element {
+        font-family: MYing-Black;
+        font-size: 2vw;
+        align-self: center;
+        color: #CCCCCC;
+        animation-name: example;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+    }
+
+@keyframes example2 {
+    0% {
+        font-size: 2vw;
+      
+        color: #060606;
+    }
+
+    100% {
+        font-size: 1.6vw;
+        align-self: center;
+        color: #CCCCCC
+    }
+}
+
+@keyframes example {
+    0% {
+        font-size: 1.6vw;
+       
+        color: #CCCCCC;
+    }
+
+    100% {
+        font-size: 2vw;
+        align-self: center;
+        color: #060606;
+    }
+}
+
+
+
+
+
+
+/* Mieszkanie section */
+
+div[data-options-element='mieszkanie'] {
+    height: 100%;
+}
+
+    div[data-options-element='mieszkanie'] .option-group {
+        margin-left: 12%;
+        max-width: 86%;
+        position: relative;
+    }
+
+    div[data-options-element='mieszkanie'] .row {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+        div[data-options-element='mieszkanie'] .row .mieszkanie-item:nth-child(1n+2) {
+            margin-left: 15vh;
+        }
+
+
+
+.header {
+    font-size: 2vh;
+    font-family: MYing-Bold;
+    margin-bottom: 1.1vh;
+}
+
+.header-highlighted {
+    background-color: #16DB65;
+    border-radius: 1vh;
+    color: white;
+    padding: 0.2vh 1.3vh;
+    font-size: 1.3vh;
+    font-family: 'MYing-Regular';
+}
+
+.title {
+    font-size: 1.3vh;
+    font-family: MYing-Bold;
+    margin-bottom: 1.1vh;
+}
+
+.value {
+    font-size: 1.5vh;
+    font-family: MYing-Bold;
+    margin-bottom: 1.3vh;
+}
+
+.selected-mieszkanie {
+    animation-name: selected-mieszkanie-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    border-left: 0px solid rgb(25, 149, 239, 0);
+}
+
+@keyframes selected-mieszkanie-effect {
+    0% {
+        border-left: 0px solid rgb(25, 149, 239, 0);
+    }
+
+    100% {
+        border-left: 0.7vh solid rgb(25, 149, 239, 1);
+    }
+}
+
+.unselected-mieszkanie {
+    animation-name: unselected-mieszkanie-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    border-left: 0.7vh solid rgb(25, 149, 239, 1);
+}
+
+@keyframes unselected-mieszkanie-effect {
+    0% {
+        border-left: 0.7vh solid rgb(25, 149, 239, 1);
+    }
+
+    100% {
+        border-left: 0px solid rgb(25, 149, 239, 0);
+    }
+}
+
+/*===============================================================*/
+
+
+
+/* Układ section */
+
+div[data-options-element='uklad'] {
+    height: 100%;
+}
+
+    div[data-options-element='uklad'] .option-group {
+        margin-left: 12%;
+        max-width: 86%;
+        position: relative;
+    }
+
+    div[data-options-element='uklad'] .row {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+        div[data-options-element='uklad'] .row .uklad-item:nth-child(1n+2) {
+            margin-left: 15vh;
+        }
+
+
+
+.header {
+    font-size: 2vh;
+    font-family: MYing-Bold;
+    margin-bottom: 1.1vh;
+}
+
+.header-highlighted {
+    background-color: #16DB65;
+    border-radius: 1vh;
+    color: white;
+    padding: 0.2vh 1.3vh;
+    font-size: 1.3vh;
+    font-family: 'MYing-Regular';
+}
+
+.title {
+    font-size: 1.3vh;
+    font-family: MYing-Bold;
+    margin-bottom: 1.1vh;
+}
+
+.value {
+    font-size: 1.5vh;
+    font-family: MYing-Bold;
+    margin-bottom: 1.3vh;
+}
+
+.selected-uklad {
+    animation-name: selected-uklad-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    border-left: 0px solid rgb(25, 149, 239, 0);
+}
+
+@keyframes selected-uklad-effect {
+    0% {
+        border-left: 0px solid rgb(25, 149, 239, 0);
+    }
+
+    100% {
+        border-left: 0.7vh solid rgb(25, 149, 239, 1);
+    }
+}
+
+.unselected-uklad {
+    animation-name: unselected-uklad-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    border-left: 0.7vh solid rgb(25, 149, 239, 1);
+}
+
+@keyframes unselected-uklad-effect {
+    0% {
+        border-left: 0.7vh solid rgb(25, 149, 239, 1);
+    }
+
+    100% {
+        border-left: 0px solid rgb(25, 149, 239, 0);
+    }
+}
+
+/*===============================================================*/
+
+
+
+
+/*===============================================================*/
+
+
+/* Kuchnia section */
+div[data-options-element='kuchnia'] {
+    height: 100%;
+}
+
+    div[data-options-element='kuchnia'] .option-group {
+        margin-left: 12%;
+        max-width: 86%;
+        position: relative;
+    }
+
+.kuchnia-inner {
+    background-size: cover;
+    vertical-align: top;
+    margin-top: 0.3vh;
+    margin-left: 0.3vh;
+    height: 10vh;
+    width: 10vh;
+    background-color: #bbb;
+    border: 3px solid #f3f5f6;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 9vh;
+    white-space: normal;
+}
+
+    .kuchnia-inner span {
+        margin-top: 2vh;
+        color: var(--blue);
+        font-family: MYing-Regular;
+        font-size: 1.5vh;
+        position: fixed;
+        margin-left: -5vh;
+        width: 10vh;
+    }
+
+
+.kuchnia-outer {
+    vertical-align: top;
+    margin-top: 2vh;
+    background-color: #f3f5f6;
+    height: 10.6vh;
+    width: 10.6vh;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.kuchnia-outer-active {
+    animation-name: kuchnia-outer-active-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    background-color: #f3f5f6;
+}
+
+@keyframes kuchnia-outer-active-effect {
+    0% {
+        background-color: #f3f5f6;
+    }
+
+    100% {
+        background-color: #2D95EF;
+    }
+}
+
+.kuchnia-outer-inactive {
+    animation-name: kuchnia-outer-inactive-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    background-color: #2D95EF;
+}
+
+@keyframes kuchnia-outer-inactive-effect {
+    0% {
+        background-color: #2D95EF;
+    }
+
+    100% {
+        background-color: #f3f5f6;
+    }
+}
+
+
+
+/*===============================================================*/
+
+
+
+/* Pokoje section */
+div[data-options-element='pokoje'] {
+    height: 100%;
+}
+
+    div[data-options-element='pokoje'] .option-group {
+        margin-left: 12%;
+        max-width: 86%;
+        position: relative;
+    }
+
+.pokoje-inner {
+    background-size: cover;
+    vertical-align: top;
+    margin-top: 0.3vh;
+    margin-left: 0.3vh;
+    height: 10vh;
+    width: 10vh;
+    background-color: #bbb;
+    border: 3px solid #f3f5f6;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 9vh;
+    white-space: normal;
+}
+
+    .pokoje-inner span {
+        margin-top: 2vh;
+        color: var(--blue);
+        font-family: MYing-Regular;
+        font-size: 1.5vh;
+        position: fixed;
+        margin-left: -5vh;
+        width: 10vh;
+    }
+
+
+.pokoje-outer {
+    vertical-align: top;
+    margin-top: 2vh;
+    background-color: #f3f5f6;
+    height: 10.6vh;
+    width: 10.6vh;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.pokoje-outer-active {
+    animation-name: pokoje-outer-active-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    background-color: #f3f5f6;
+}
+
+@keyframes pokoje-outer-active-effect {
+    0% {
+        background-color: #f3f5f6;
+    }
+
+    100% {
+        background-color: #2D95EF;
+    }
+}
+
+.pokoje-outer-inactive {
+    animation-name: pokoje-outer-inactive-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    background-color: #2D95EF;
+}
+
+@keyframes pokoje-outer-inactive-effect {
+    0% {
+        background-color: #2D95EF;
+    }
+
+    100% {
+        background-color: #f3f5f6;
+    }
+}
+
+
+
+/*===============================================================*/
+
+
+/* Łazienka section */
+div[data-options-element='lazienka'] {
+    height: 100%;
+}
+
+    div[data-options-element='lazienka'] .option-group {
+        margin-left: 12%;
+        max-width: 86%;
+        position: relative;
+    }
+
+.lazienka-inner {
+    background-size: cover;
+    vertical-align: top;
+    margin-top: 0.3vh;
+    margin-left: 0.3vh;
+    height: 10vh;
+    width: 10vh;
+    background-color: #bbb;
+    border: 3px solid #f3f5f6;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 9vh;
+    white-space: normal;
+}
+
+    .lazienka-inner span {
+        margin-top: 2vh;
+        color: var(--blue);
+        font-family: MYing-Regular;
+        font-size: 1.5vh;
+        position: fixed;
+        margin-left: -5vh;
+        width: 10vh;
+    }
+
+
+.lazienka-outer {
+    vertical-align: top;
+    margin-top: 2vh;
+    background-color: #f3f5f6;
+    height: 10.6vh;
+    width: 10.6vh;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.lazienka-outer-active {
+    animation-name: lazienka-outer-active-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    background-color: #f3f5f6;
+}
+
+@keyframes lazienka-outer-active-effect {
+    0% {
+        background-color: #f3f5f6;
+    }
+
+    100% {
+        background-color: #2D95EF;
+    }
+}
+
+.lazienka-outer-inactive {
+    animation-name: lazienka-outer-inactive-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    background-color: #2D95EF;
+}
+
+@keyframes lazienka-outer-inactive-effect {
+    0% {
+        background-color: #2D95EF;
+    }
+
+    100% {
+        background-color: #f3f5f6;
+    }
+}
+
+
+
+/*===============================================================*/
+
+
+
+
+/* Wykonczenia section */
+
+div[data-options-element='wykonczenia'] {
+    height: 100%;
+}
+
+    div[data-options-element='wykonczenia'] .option-group {
+        margin-left: 12%;
+        max-width: 86%;
+        position: relative;
+    }
+
+.dot {
+    vertical-align: top;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    height: 10vh;
+    width: 10vh;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+div[data-options-element='wykonczenia'] .selected-dot {
+    height: 10vh;
+    border-radius: 50%;
+    animation-name: selected-dot-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+}
+
+@keyframes selected-dot-effect {
+    0% {
+        height: 10vh;
+        border-radius: 50%;
+    }
+
+    100% {
+        height: 18vh;
+        border-radius: 100px;
+    }
+}
+
+div[data-options-element='wykonczenia'] .unselected-dot {
+    height: 18vh;
+    border-radius: 100px;
+    animation-name: unselected-dot-effect;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes unselected-dot-effect {
+    0% {
+        height: 18vh;
+        border-radius: 100px;
+    }
+
+    100% {
+        height: 10vh;
+        border-radius: 50%;
+    }
+}
+
+/*===============================================================*/
+
+
+
+/* Summary section */
+
+
+.summary-model-name {
+    color: white;
+    font-size: 4vh;
+    font-family: MYing-Bold;
+    top: 1.6vh;
+    left: 9vw;
+    position: absolute;
+}
+
+.summary-model-price {
+    color: white;
+    top: 2vh;
+    right: 31vw;
+    position: absolute;
+}
+
+    .summary-model-price .summary-price-text {
+        font-size: 1.3vh;
+        font-family: MYing-Regular;
+        margin-bottom: 0vh;
+    }
+
+    .summary-model-price .summary-price-value {
+        margin-top: 0vh;
+        font-size: 2.3vh;
+        font-family: MYing-Bold;
+    }
+
+.summary-button {
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0.5vw;
+    background-color: var(--blue);
+    height: 4.7vh;
+    width: 15vw;
+    color: white;
+    top: 2.3vh;
+    right: 9vw;
+    position: absolute;
+}
+
+
+
+    .summary-button .summary-button-text {
+        margin-top: 1.1vh;
+        font-family: MYing-Bold;
+        font-size: 1.6vh;
+    }
+
+    .summary-button:hover {
+        background-color: var(--dark-blue);
+    }
+
+
+.price-diferrence {
+    animation-name: price-difference-effect;
+    animation-duration: 3000ms;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    margin-top: 2vh;
+}
+
+@keyframes price-difference-effect {
+    0% {
+        margin-top: 2vh;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        margin-top: -2vh;
+        opacity: 0;
+    }
+}
+
+/*===============================================================*/
+
+/* Summary view */
+
+
+.summary-view-model-name {
+    color: white;
+    font-size: 4vh;
+    font-family: MYing-Bold;
+    margin-top: 1.6vh;
+}
+
+.summary-view-model-items {
+    color: white;
+    font-size: 2.5vh;
+    font-family: MYing-Thin;
+    margin-top: 2.3vh;
+    left: 9vw;
+}
+
+.summary-view-model-price {
+    color: white;
+    font-size: 4vh;
+    font-family: MYing-Bold;
+    margin-top: 1.6vh;
+}
+
+
+/*===============================================================*/
+
+
+
+/*Option group of modyfication type, eg: group of colors, gorup of wheels*/
+
+.option-group > .row {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+    .option-group > .row > .col {
+        display: inline-block;
+        max-width: 20vh;
+    }
+
+.covered-box {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(243, 245, 246, 1) 100%);
+    position: absolute;
+    /* margin-right: 0px; */
+    height: 120px;
+    width: 5.7vw;
+    z-index: 9;
+    height: 100%;
+    right: 0px;
+}
+
+/*===============================================================*/
+
+/* Main file structure like Main View, Navigation, Summary bar*/
+
+.load-configuration {
+    padding-top: 0.6vh;
+    position: absolute;
+    height: 5vh;
+    width: 18vh;
+    margin-left: -8vh;
+    text-align: center;
+    font-size: 1.5vh;
+    background: #007bff;
+    transform: rotate( 90deg );
+    font-family: MYing-Regular;
+    color: white;
+    margin-top: 30vh;
+    cursor: pointer;
+}
+
+    .load-configuration a {
+        color: inherit;
+        text-decoration: none; /* no underline */
+    }
+
+        .load-configuration a:hover {
+            color: inherit;
+            text-decoration: none; /* no underline */
+        }
+
+
+    .load-configuration:hover {
+        animation-name: load-configuration-hover;
+        animation-duration: 200ms;
+        animation-fill-mode: forwards;
+    }
+
+@keyframes load-configuration-hover {
+    0% {
+        background-color: #007bff;
+    }
+
+    100% {
+        background-color: #2234b1;
+    }
+}
+
+
+
+.content {
+    padding-top: 2.5rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+    height: 100vh;
+    overflow: auto;
+    background-color: #F3F5F6;
+}
+
+.navigation {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 13.5vh;
+    overflow: auto;
+    background-color: #F3F5F6;
+}
+
+.options {
+    width: 100%;
+    height: 25vh;
+    overflow: auto;
+    background: linear-gradient( 180deg, rgba(243,245,246,1) 0%, rgba(243,245,246,0.8) 60%, rgba(243,245,246,0) 100%);
+    position: absolute;
+}
+
+
+.main-view {
+    height: 73.7vh;
+    overflow: auto;
+    background-color: yellow;
+}
+
+.summary-bar {
+    height: 10.2vh;
+    overflow: auto;
+    background-color: #333333;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-origin: border-box;
+    min-width: 55px;
+}
+
+.display-none {
+    display: none !important;
+}
+
+/*===============================================================*/
+
+/*Scroll bar */
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e1e1e1;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #d8d8d8;
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background: #d8d8d8;
+    }
+
+::-webkit-scrollbar-track {
+    background: #f3f5f6;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+    ::-webkit-scrollbar-track:hover {
+        background: #f3f5f6;
+    }
+
+    ::-webkit-scrollbar-track:active {
+        background: #f3f5f6;
+    }
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+/*===============================================================*/
+
+
+#popupLoadConfiguration .popup-content {
+    font-size: 1.3vh;
+    font-family: 'MYing-Regular';
+    text-align: center;
+    margin-top: 0.5vh;
+}
+
+#popupLoadConfiguration .div-button {
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0.5vw;
+    background-color: var(--blue);
+    height: 4vh;
+    width: 6vw;
+    color: white;
+    padding-top: 0.8vh;
+    display: inline-block;
+    margin-top: 2vh;
+}
+
+#popupLoadConfiguration .loadButton {
+    font-family: MYing-Bold;
+    font-size: 1.6vh;
+}
+
+
+/* text-based popup styling */
+.white-popup {
+    border-radius: 1vh;
+    position: relative;
+    background: #FFF;
+    padding: 25px;
+    width: auto;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+.popup-title {
+    font-size: 2vh;
+    font-family: 'MYing-Black';
+    text-align: center;
+}
+
+.popup-content {
+    font-size: 1.4vh;
+    font-family: 'MYing-Regular';
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.configuration-key-input {
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: #f9f9f9;
+    font-size: 2.6vh;
+    font-family: 'MYing-Bold';
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 0vh;
+    letter-spacing: 0.2vh;
+    text-transform: uppercase;
+}
+
+    .configuration-key-input::-webkit-input-placeholder {
+        font-family: 'MYing-Regular';
+        color: #c6c6c6 !important;
+        font-size: 1.5vh;
+        letter-spacing: 0px;
+        margin-bottom: 1vh;
+        transform: translate3d(0,-3px,0);
+        text-transform: none;
+    }
+
+    .configuration-key-input:focus {
+        outline: none;
+    }
+
+.popup-configuration-key {
+    background-color: #f9f9f9;
+    font-size: 2.6vh;
+    font-family: 'MYing-Bold';
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    letter-spacing: 0.2vh;
+}
+
+.mfp-close {
+    color: #2D95EF !important;
+    opacity: 1 !important;
+}
+/* 
+
+====== Zoom-out effect ======
+
+*/
+.mfp-zoom-out {
+    /* start state */
+    /* animate in */
+    /* animate out */
+}
+
+    .mfp-zoom-out .mfp-with-anim {
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        transform: scale(1.3);
+    }
+
+    .mfp-zoom-out.mfp-bg {
+        opacity: 0;
+        transition: all 0.3s ease-out;
+    }
+
+    .mfp-zoom-out.mfp-ready .mfp-with-anim {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .mfp-zoom-out.mfp-ready.mfp-bg {
+        opacity: 0.8;
+    }
+
+    .mfp-zoom-out.mfp-removing .mfp-with-anim {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+
+    .mfp-zoom-out.mfp-removing.mfp-bg {
+        opacity: 0;
+    }
+
+#renderCanvas {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: unset;
+    border: none !important;
+    outline: none !important;
+    display: block;
+}

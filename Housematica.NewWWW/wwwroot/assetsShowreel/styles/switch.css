@@ -1,0 +1,62 @@
+.switch-container {
+	display: flex;
+	justify-content:center;
+	position: absolute;
+	bottom: 4vh;
+	height: 4vh;
+	width: 75%;
+	background: none;
+}
+
+.switch {
+	background-color: white;
+	display: flex;
+	width: fit-content;
+	border-radius: 10vh;
+	background-color: white;
+	box-shadow: rgb(0 123 255 / 20%) 0px 7px 29px 0px;
+}
+
+
+	.switch .element {
+		color: #c8c8c8;
+		background-color: white;
+		display: inline-block;
+		padding-left: 0.8vw;
+		padding-right: 0.8vw;
+		padding-top: 1vh;
+		font-family: MYing-Bold;
+		border-radius: 10vh;
+	}
+
+	.switch .element span {
+		cursor: pointer;
+	}
+
+		.switch .element:first-child {
+			border-top-left-radius: 10vh;
+			border-bottom-left-radius: 10vh;
+		}
+
+		.switch .element:last-child {
+			border-top-right-radius: 10vh;
+			border-bottom-right-radius: 10vh;
+		}
+
+
+		.switch .element.checked {
+			animation-name: fadeIn;
+			animation-duration: 1s;
+			background-color: #007bff;
+			color: white;
+		}
+
+@keyframes fadeIn {
+	from {
+		background-color: white;
+	}
+
+	to {
+		background-color: #007bff;
+	}
+}

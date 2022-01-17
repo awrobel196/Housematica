@@ -1,0 +1,151 @@
+﻿@model Housematica.Intranet.ViewModel.LicenseWidgetViewModel
+
+@{ 
+    Layout = "/Views/Shared/_ComponentLayout.cshtml";
+}
+<!--begin::Mixed Widget 18-->
+<div class="card card-custom card-stretch gutter-b">
+    <!--begin::Header-->
+    <!--begin::Header-->
+    <div class="card-header h-auto border-0">
+        <!--begin::Title-->
+        <div class="card-title py-5">
+            <h3 class="card-label">
+                <span class="d-block text-dark font-weight-bolder">Przegląd licencji</span>
+                <span class="d-block text-muted mt-2 font-size-sm">Licencja wygasa: @Model.LicenseExpired</span>
+            </h3>
+        </div>
+        <!--end::Title-->
+        <!--end::Header-->
+        <div class="card-toolbar">
+            <div class="dropdown dropdown-inline">
+                <a href="#" class="btn btn-clean btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="ki ki-bold-more-hor"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                    <!--begin::Navigation-->
+                    <ul class="navi navi-hover">
+                        <li class="navi-header font-weight-bold py-4">
+                            <span class="font-size-lg">Choose Label:</span>
+                            <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="Click to learn more..."></i>
+                        </li>
+                        <li class="navi-separator mb-3 opacity-70"></li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-text">
+                                    <span class="label label-xl label-inline label-light-success">Customer</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-text">
+                                    <span class="label label-xl label-inline label-light-danger">Partner</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-text">
+                                    <span class="label label-xl label-inline label-light-warning">Suplier</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-text">
+                                    <span class="label label-xl label-inline label-light-primary">Member</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-text">
+                                    <span class="label label-xl label-inline label-light-dark">Staff</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="navi-separator mt-3 opacity-70"></li>
+                        <li class="navi-footer py-4">
+                            <a class="btn btn-clean font-weight-bold btn-sm" href="#">
+                                <i class="ki ki-plus icon-sm"></i>
+                                Add new
+                            </a>
+                        </li>
+                    </ul>
+                    <!--end::Navigation-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body">
+        <!--begin::Chart-->
+        <div id="kt_mixed_widget_18_chart" style="height: 250px"></div>
+        <!--end::Chart-->
+        <!--begin::Items-->
+        <div class="mt-n12 position-relative zindex-0">
+            <!--begin::Widget Item-->
+            <div class="d-flex align-items-center mb-8">
+                <!--begin::Symbol-->
+                <div class="symbol symbol-circle symbol-40 symbol-light mr-3 flex-shrink-0">
+                    <div class="symbol-label">
+                        <span class="svg-icon svg-icon-lg svg-icon-gray-500">
+                            <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo6\dist/../src/media/svg/icons\Home\Mailbox.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path d="M8,6 L20.5,6 C21.3284271,6 22,6.67157288 22,7.5 C22,8.32842712 21.3284271,9 20.5,9 L8,9 L8,19.5 C8,20.3284271 7.32842712,21 6.5,21 C5.67157288,21 5,20.3284271 5,19.5 L5,9 L3.5,9 C2.67157288,9 2,8.32842712 2,7.5 C2,6.67157288 2.67157288,6 3.5,6 L5,6 L5,4.5 C5,3.67157288 5.67157288,3 6.5,3 C7.32842712,3 8,3.67157288 8,4.5 L8,6 Z" fill="#000000" />
+                                    <path d="M10,11 L20.5,11 C21.3284271,11 22,11.6715729 22,12.5 L22,15 C22,17.209139 20.209139,19 18,19 L11.5,19 C10.6715729,19 10,18.3284271 10,17.5 L10,11 Z M20,12 C19.4477153,12 19,12.4477153 19,13 L19,16 C19,16.5522847 19.4477153,17 20,17 C20.5522847,17 21,16.5522847 21,16 L21,13 C21,12.4477153 20.5522847,12 20,12 Z" fill="#000000" opacity="0.3" />
+                                </g>
+                            </svg><!--end::Svg Icon-->
+                        </span>
+                    </div>
+                </div>
+                <!--end::Symbol-->
+                <!--begin::Title-->
+                <div>
+                    <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">@Model.ProjectsAvailable projekty</a>
+                    <div class="font-size-sm text-muted font-weight-bold mt-1">Dostępna ilość nowych projektów</div>
+                </div>
+                <!--end::Title-->
+            </div>
+            <!--end::Widget Item-->
+            <!--begin::Widget Item-->
+            <div class="d-flex align-items-center mb-8">
+                <!--begin::Symbol-->
+                <div class="symbol symbol-circle symbol-40 symbol-light mr-3 flex-shrink-0">
+                    <div class="symbol-label">
+                        <span class="svg-icon svg-icon-lg svg-icon-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                    <rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"></rect>
+                                    <path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3"></path>
+                                </g>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <!--end::Symbol-->
+                <!--begin::Title-->
+                <div>
+                    <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">@Model.VariantsAvailable wariantów</a>
+                    <div class="font-size-sm text-muted font-weight-bold mt-1">Dostępna ilość nowych wariantów</div>
+                </div>
+                <!--end::Title-->
+            </div>
+            <!--end::Widget Item-->
+
+        </div>
+        <!--end::Items-->
+    </div>
+    <!--end::Body-->
+</div>
+<!--end::Mixed Widget 18-->
+
+@section Scripts {
+    <script defer>
+        var numberLicence = @Model.PercentageLicenseUsing;
+    </script>
+}

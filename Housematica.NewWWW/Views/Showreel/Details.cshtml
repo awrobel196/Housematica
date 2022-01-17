@@ -1,0 +1,263 @@
+﻿@model Housematica.Data.Data.CMS.Single;
+@using System.Globalization;
+@using System.Web
+@{
+
+    Layout = "~/Views/Shared/_ShowreelLayout.cshtml";
+
+}
+<div class="loader">
+
+    <lottie-player src="../../assets/media/lottie/lf30_editor_jzrmetke.json" background="transparent" speed="1" loop autoplay></lottie-player>
+</div>
+<div class="content">
+    <canvas id="renderCanvas"></canvas>
+    <img src="~/assetsShowreel/media/logosvg.svg" class="logo" />
+    <div class="show-menu" onclick="showDetails()">
+        <span>Pokaż szczegóły</span>
+    </div>
+</div>
+<div class="switch-container">
+    <div class="switch">
+
+        @{
+            var k = 1;
+            foreach (var kondygnacja in Model.SingleFloor)
+            {
+                if (k == 1)
+                {
+                    <div class="element checked" onclick="select(this); changeScene('@kondygnacja.IdSingleFloor')">
+                        <span>@kondygnacja.FloorName</span>
+                    </div>
+                    k++;
+                }
+                else
+                {
+                    <div class="element " onclick="select(this); changeScene('@kondygnacja.IdSingleFloor')">
+                        <span>@kondygnacja.FloorName</span>
+                    </div>
+                    k++;
+                }
+            }
+        }
+
+
+
+    </div>
+</div>
+
+
+
+<div class="right-section" style="overflow: auto;">
+    <div class="close-section" onclick="hideDetails()">
+        <span>Zamknij szczegóły</span>
+    </div>
+    <div class="content">
+        <img class="single-image"
+             src=@($"https://ftp.quirky-curie.188-34-164-7.plesk.page/cdn/{Model.IdProjects}/{Model.Name}/SingleImage/{Model.Image}") />
+
+        <h3 class="primary-black">@Model.Projects.ProjectName</h3>
+        <h1 class="primary-black">@Model.Name</h1>
+        <h4 class="primary-gray">
+            @Model.Projects.ProjectType.Name &nbsp;&nbsp; | &nbsp;&nbsp; @Model.Projects.OwnerName
+        </h4>
+
+        <div class="icon-section price-section">
+            <div class="circle margin-top-standard-2x">
+                <i class="fas fa-leaf icon"></i>
+            </div>
+            <div class="circle margin-top-standard-2x">
+                <i class="fas fa-map icon"></i>
+            </div>
+            <div class="circle margin-top-standard-2x">
+                <i class="fas fa-paper-plane icon"></i>
+            </div>
+
+            <span class="price primary-blue">@Model.Price,00 zł</span>
+        </div>
+
+        <div class="info-section margin-top-standard-2x">
+            <div class="1-info">
+                <i class="fas fa-expand icon"></i>Powierzchnia: @Model.Area m<sup>2</sup>
+            </div>
+
+            <div class="2-info">
+                <i class="fas fa-layer-group icon"></i>@Model.NumberOfFloor
+            </div>
+
+            <div class="3-info">
+                <i class="fas fa-door-open icon"></i>@Model.SingleFloor.Select(x => x.SingleRooms.Count()).Sum()
+            </div>
+
+            <div class="4-info last">
+                <i class="fas fa-bed icon"></i>@Model.SingleFloor.Select(x => x.NumberOfLivingRoom).Sum()
+            </div>
+        </div>
+
+        <div id='map' class="margin-top-standard-2x map-box"></div>
+
+       
+        <h5 class="margin-top-standard-4x">Opis</h5>
+        <p class="description margin-top-standard-2x">
+            @Model.Projects.ProjectDescription
+        </p>
+
+        <h5 class="margin-top-standard-4x">Kondygnacje</h5>
+
+        @{
+            var f = 1;
+
+            foreach (var floor in Model.SingleFloor)
+            {
+                var r = 1;
+
+
+                @if (floor.FloorType == false)
+                {
+                    <div class="condygnation-name margin-top-standard-4x ">
+                        <h6 class="primary-blue">@floor.FloorName</h6> <a href=@($"#popup{f}") id="testButton" data-effect="mfp-zoom-out">
+                            <i class="fas fa-external-link-alt icon"></i>
+                        </a>
+                    </div>
+                    <div class="info-section margin-top-standard-1x">
+                        <div class="1-info">
+                            <i class="fas fa-expand icon"></i>Powierzchnia:  @floor.FloorArea m<sup>2</sup>
+                        </div>
+
+                        <div class="2-info">
+                            <i class="fas fa-layer-group icon"></i>
+                        </div>
+
+                        <div class="3-info">
+                            <i class="fas fa-door-open icon"></i>@floor.SingleRooms.Count()
+                        </div>
+
+                        <div class="4-info last">
+                            <i class="fas fa-bed icon"></i>@floor.NumberOfLivingRoom
+                        </div>
+                    </div>
+
+
+                    <div id=@($"popup{f}") class="white-popup mfp-with-anim mfp-hide">
+                        <p class="popup-title">@floor.FloorName</p>
+                        <div class="room-list margin-top-standard-3x">
+                            @foreach (var room in floor.SingleRooms)
+                            {
+                                <div><span>@r. @room.RoomName</span><span class="area">@room.RoomArea m<sup>2</sup></span></div>
+                                r++;
+                            }
+                        </div>
+
+                    </div>
+                    f++;
+                }
+
+
+
+            }
+        }
+
+
+
+
+
+        <h5 class="margin-top-standard-4x file-mobile">Pliki</h5>
+        <div class="file-section-mobile margin-top-standard-2x">
+
+            @{var i = 1;
+                var j = 11;
+                foreach (var item in Model.SingleFloor)
+                {
+                    <div class="file-section-mobile-row ">
+                        <div><i class="fas fa-file-pdf"></i><p>Rzut @item.FloorName.ToLower()</p></div><div>
+                            <div class="condygnation-name"><a href=@($"#popup{j}") id="testButton" data-effect="mfp-zoom-out"><i class="fas fa-external-link-alt"></i></a></div>
+
+                        </div>
+                    </div>
+
+                    <div id=@($"popup{j}") class="white-popup-max mfp-with-anim mfp-hide">
+                        <img src="https://ftp.quirky-curie.188-34-164-7.plesk.page/cdn/@Model.IdProjects/@Model.Name/PlanVariant@(i)/@item.FloorPlan" style="width: 100%" />
+
+                    </div>
+
+                    i++;
+                    j++;
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+        <div style="height: 3vh;"></div>
+
+
+    </div>
+</div>
+
+@{ string adress = $"{Model.Projects.ProjectCity}";}
+@{ string encodedAdress = HttpUtility.HtmlEncode(adress);}
+
+@section scripts{
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    @await Component.InvokeAsync("BabylonComponent", Model)
+    <script>
+	var map;
+	var marker;
+	var form = new FormData();
+	var latitude;
+	var longitude;
+
+		var settings = {
+			"url": "https://api.mapbox.com/geocoding/v5/mapbox.places/@encodedAdress .json?types=address&access_token=pk.eyJ1IjoicG9sdW55dCIsImEiOiJja3llYjBxc3YwNXd0Mm5wbXozYnYzaGFnIn0.MErH65QEaodTKNqY_3nmDg",
+		"method": "GET",
+		"timeout": 0,
+		"processData": false,
+		"mimeType": "multipart/form-data",
+		"contentType": false,
+		"data": form
+	};
+
+
+	$.ajax(settings).done(function (response) {
+		var obj = JSON.parse(response);
+		latitude = obj.features[0].center[0];
+		longitude = obj.features[0].center[1];
+
+		loadMap();
+	});
+
+	function loadMap() {
+		mapboxgl.accessToken = 'pk.eyJ1IjoicG9sdW55dCIsImEiOiJja3llYjBxc3YwNXd0Mm5wbXozYnYzaGFnIn0.MErH65QEaodTKNqY_3nmDg';
+		map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/mapbox/light-v10',
+			center: [latitude, longitude],
+			zoom: 15.15,
+		});
+
+		marker = new mapboxgl.Marker({
+			color: "#007bff"
+		}).setLngLat([latitude, longitude])
+			.addTo(map);
+
+
+	}
+
+
+
+
+
+    </script>
+}
+
